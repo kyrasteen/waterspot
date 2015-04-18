@@ -1,0 +1,18 @@
+@import 'base';
+
+.map, #map{
+  width:80%;
+  height:75%;
+  display:block;
+  margin:30px;
+  margin:0 auto;
+}
+
+#map{
+  width:99%;
+  height:60%;
+  border:4px solid $main-blue;
+}
+
+
+

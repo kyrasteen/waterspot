@@ -1,0 +1,69 @@
+@import 'base';
+
+text{
+    font-family:$main-font;
+  }
+
+.waterspot-logo{
+  width:305px;
+  height:130px;
+  margin:20px;
+
+  #waterspot{
+    fill:none;
+    stroke:$main-blue;
+  }
+
+  polygon{
+    fill:$main-blue;
+    stroke:$mid-blue;
+    stroke-width:4px;
+  }
+
+  text{
+    fill:$main-blue;
+    font-size:2em;
+  }
+  .socail, .flow, .data{
+    font-size:1.2em;
+  }
+
+  .flow{
+    fill:$main-blue;
+  }
+
+  #data{
+    fill:$main-blue;
+    stroke:$mid-blue;
+  }
+  .data{
+    fill:$light-blue;
+  }
+}
+
+
+.sign-in{
+  fill:$main-blue;
+  stroke:$mid-blue;
+  stroke-width:4px;
+  width:115px;
+  height:100px;
+
+  text{
+    stroke:none;
+    fill:$light-blue;
+  }
+}
+
+.register{
+  width:270px;
+  fill:$main-blue;
+  stroke:$mid-blue;
+  stroke-width:4px;
+  float:left;
+
+  text{
+    stroke:none;
+    fill:$light-blue;
+  }
+}

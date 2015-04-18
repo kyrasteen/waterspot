@@ -1,0 +1,16 @@
+@import 'base';
+
+body{
+  background-color:$background-blue;
+
+  .sign-up-login{
+    float:right;
+  }
+
+  a{
+    text-decoration:none;
+    &:hover svg{
+     fill:transparent;
+   }
+   }
+}
