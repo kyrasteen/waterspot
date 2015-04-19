@@ -10,7 +10,11 @@ text{
   margin:10px;
   &:hover #waterspot{
     fill:$main-blue;
+    stroke:$mid-blue;
   }
+  text:hover{
+    fill:$light-blue;
+    }
 
   #waterspot{
     fill:none;
@@ -44,38 +48,39 @@ text{
   }
 }
 
-
-.sign-in{
+.register, .sign-in, .profile{
   fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  width:165px;
-  margin-top:30px;
-
   text{
     stroke:none;
     fill:$light-blue;
   }
 }
 
-.register{
-  fill:$main-blue;
-  stroke:$mid-blue;
-  stroke-width:4px;
-  width:117px;
+.sign-in{
+  width:165px;
+  margin-top:30px;
+}
 
-  text{
-    stroke:none;
-    fill:$light-blue;
-  }
+.register{
+  width:117px;
 }
 
 .border{
   fill:none;
   stroke:$main-blue;
+  stroke-width:4px;
   position:relative;
   z-index:0;
   height:500px;
   width:417px;
-  margin-left:25%;
+  margin:0 auto;
+  display:block;
+}
+
+.profile{
+  position:absolute;
+  top:9%;
+  left:82%;
 }

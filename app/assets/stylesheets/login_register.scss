@@ -27,11 +27,19 @@
   }
 }
 
+#user_remote_avatar_url{
+  width:240px;
+}
+
+.sign-up-login{
+  height:100px;
+  margin-top:-20px;
+}
+
 .register-form, .login-form{
-  margin:0 auto;
-  width:60%;
-  top:40%;
-  left:23%;
+  width:80%;
+  top:33%;
+  left:29%;
   position:absolute;
   z-index:100;
 }
