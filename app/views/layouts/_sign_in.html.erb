@@ -1,6 +1,6 @@
 <div class="sign-up-login">
 
-<%= link_to new_user_path do %>
+<%= link_to new_user_path, class:"register-link"  do %>
 <svg class="register">
   <g>
   <polygon points="107 47,67 64,5 52,7 24,51 6,91 20"></polygon>
@@ -9,7 +9,7 @@
 </svg>
 <% end %>
 
-<%= link_to login_path do %>
+<%= link_to login_path, class: "login-link" do %>
 <svg class="sign-in">
   <g>
   <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>

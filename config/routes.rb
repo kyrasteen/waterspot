@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  namespace :users, as: :user, path: "/:slug" do
+    resources :spots, except: [:show]
+  end
+
 end
