@@ -1,0 +1,31 @@
+@import 'base';
+
+.footer-poly{
+  fill:none;
+  stroke:$mid-blue;
+  stroke-width:4px;
+  width:100px;
+  float:left;
+  &:hover{
+    fill:$main-blue;
+  }
+  &:hover text{
+    fill:$light-blue;
+  }
+  text{
+    fill:$main-blue;
+    stroke:none;
+  }
+}
+
+footer{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:50px;
+  width:100%;
+  padding:10px;
+  text{
+    font-size:.8em;
+  }
+}

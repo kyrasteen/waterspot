@@ -1,22 +1,21 @@
 <div class="sign-up-login">
 
-<%= link_to login_path do %>
-<svg class="sign-in">
+<%= link_to new_user_path do %>
+<svg class="register">
   <g>
-    <polygon points="107 47,67 64,5 52,7 24,51 6,91 20">
-    </polygon>
-    <text  x=50 y=45>login</text>
+  <polygon points="107 47,67 64,5 52,7 24,51 6,91 20"></polygon>
+  <text x=20 y=40>register</text>
   </g>
 </svg>
 <% end %>
 
-<a href="#">
-<svg class="register">
+<%= link_to login_path do %>
+<svg class="sign-in">
   <g>
-  <polygon points="119 48,156 75,251 94,262 68,220 26,169 29"></polygon>
-  <text class="register" x=140 y=65>register</text>
+  <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
+  <text x=40 y=40>sign in</text>
   </g>
 </svg>
-</a>
+<% end %>
 
 </div>

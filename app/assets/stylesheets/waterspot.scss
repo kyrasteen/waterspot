@@ -1,7 +1,9 @@
 @import 'base';
 
 body{
-  background-color:$background-blue;
+  color:$main-blue;
+  background-image:image-url("background.jpg");
+
 
   .sign-up-login{
     float:right;
@@ -10,7 +12,15 @@ body{
   a{
     text-decoration:none;
     &:hover svg{
-     fill:transparent;
-   }
-   }
+      fill:transparent;
+    }
+    &:hover text{
+      fill:$main-blue;
+    }
+  }
+
+  li{
+    list-style:none;
+  }
+
 }

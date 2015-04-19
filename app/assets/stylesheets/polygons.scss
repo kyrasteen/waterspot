@@ -5,9 +5,12 @@ text{
   }
 
 .waterspot-logo{
-  width:305px;
-  height:130px;
-  margin:20px;
+  width:270px;
+  height:170px;
+  margin:10px;
+  &:hover #waterspot{
+    fill:$light-blue;
+  }
 
   #waterspot{
     fill:none;
@@ -46,8 +49,8 @@ text{
   fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  width:115px;
-  height:100px;
+  width:165px;
+  margin-top:30px;
 
   text{
     stroke:none;
@@ -56,14 +59,23 @@ text{
 }
 
 .register{
-  width:270px;
   fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  float:left;
+  width:117px;
 
   text{
     stroke:none;
     fill:$light-blue;
   }
+}
+
+.border{
+  fill:none;
+  stroke:$main-blue;
+  position:relative;
+  z-index:0;
+  height:500px;
+  width:417px;
+  margin-left:25%;
 }
