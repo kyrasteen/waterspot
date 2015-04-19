@@ -1,0 +1,37 @@
+@import 'base';
+
+.slicknav_menu,{
+  display:none;
+  @include media(medium) { display:block; }
+}
+#menu {
+  display:none;
+}
+
+.handheld{
+  display:none;
+  @include media(medium) { display:block; }
+  img{
+    width:30px;
+    height:auto;
+    float:right;
+    display:inline;
+    margin:5px;
+  }
+  h1{
+    display:inline;
+    a{
+      margin:10px;
+      color:$main-blue;
+      font-family:$main-font;
+      &:hover{
+        color:$light-blue;
+      }
+    }
+  }
+}
+
+.large-nav{
+  height:155px;
+  @include media(medium) { display:none; }
+}

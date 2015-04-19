@@ -53,6 +53,11 @@ GEM
       capybara-console
       database_cleaner
       exception_notification
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -70,7 +75,6 @@ GEM
     execjs (2.5.2)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    gmaps4rails (2.1.2)
     i18n (0.7.0)
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
@@ -86,7 +90,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mapbox-rails (1.6.1.1)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
@@ -130,6 +133,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    rmagick (2.13.4)
     rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.1)
@@ -182,16 +186,16 @@ PLATFORMS
 
 DEPENDENCIES
   capybara-rails
+  carrierwave
   coffee-rails (~> 4.1.0)
-  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-  mapbox-rails
   normalize-rails
   pg
   pry
   rails (= 4.2.0)
+  rmagick
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

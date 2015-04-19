@@ -1,6 +1,24 @@
+<div id='map'></div>
 
-<div id='map' class='light'></div>
+<div id='legend' style='display:none;'>
+  <strong>Legend</strong>
+  <nav class='legend clearfix'>
+    <span style='background:#F1EEF6;'></span>
+    <span style='background:#BDC9E1;'></span>
+    <span style='background:#74A9CF;'></span>
+    <span style='background:#2B8CBE;'></span>
+    <span style='background:#045A8D;'></span>
+    <label>1</label>
+    <label>2</label>
+    <label>3</label>
+    <label>4</label>
+    <label>5</label>
+</div>
 
-<script type='text/javascript'>
-  var map = L.mapbox.map('map', 'examples.map-y7l23tes').setView([37.9, -77], 5);
+<script>
+  L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
+  var map = L.mapbox.map('map', 'kyraweber.lp8mldi9')
+  .setView([40, -94.50], 4);
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 </script>
+

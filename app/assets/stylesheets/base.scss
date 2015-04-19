@@ -6,3 +6,22 @@ $light-blue:#dbdbdb;
 $background-blue:#EDF6FA;
 
 $main-font:'Nixie One', cursive;
+
+$break-small: 320px;
+$break-med: 585px;
+$break-large: 1024px;
+
+@mixin media($media) {
+  @if $media == small {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == medium {
+    @media only screen and (max-width: $break-med ) { @content; }
+  }
+  @else if $media == large {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+  @else {
+    @media only screen and (max-width: $media) { @content; }
+  }
+}

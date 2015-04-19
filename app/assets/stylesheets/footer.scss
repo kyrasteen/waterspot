@@ -1,20 +1,20 @@
 @import 'base';
 
 .footer-poly{
-  fill:none;
+  fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
+  text{
+    stroke:none;
+    fill:$light-blue;
+  }
   width:100px;
   float:left;
   &:hover{
-    fill:$main-blue;
+    fill:none;
   }
   &:hover text{
-    fill:$light-blue;
-  }
-  text{
     fill:$main-blue;
-    stroke:none;
   }
 }
 

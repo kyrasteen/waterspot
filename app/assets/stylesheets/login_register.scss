@@ -27,11 +27,35 @@
   }
 }
 
+#user_remote_avatar_url{
+  width:240px;
+}
+
+.sign-up-login{
+  height:100px;
+  margin-top:-20px;
+}
+
 .register-form, .login-form{
-  margin:0 auto;
-  width:60%;
-  top:40%;
-  left:23%;
+  width:80%;
+  top:33%;
+  left:29%;
   position:absolute;
   z-index:100;
+
+  @include media(1200px) { left:28%; }
+  @include media(1100px) { left:27%; }
+  @include media(1020px) { left:26%; }
+  @include media(950px) { left:25%; }
+  @include media(900px) { left:24%; }
+  @include media(840px) { left:23%; }
+  @include media(800px) { left:22%; }
+  @include media(750px) { left:21%; }
+  @include media(730px) { left:20%; }
+  @include media(680px) { left:19%; }
+  @include media(660px) { left:18%; }
+  @include media(630px) { left:17%; }
+  @include media(600px) { left:13%; }
+  @include media(458px) { top:12%; }
+  @include media(380px) { left:13%; }
 }
