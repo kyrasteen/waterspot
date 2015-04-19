@@ -7,7 +7,21 @@
   <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
   <%= csrf_meta_tags %>
 </head>
-<nav>
+
+  <ul id="menu">
+  <h1><%= link_to "waterspot", root_path %></h1>
+    <li><a href="/login">login</a></li>
+    <li><a href="/users/new">register</a></li>
+    <li><a href="#">dashboard</a></li>
+  </ul>
+  <script>
+    $(function(){
+      $('#menu').slicknav();
+    });
+  </script>
+
+</nav>
+<nav class="large-nav">
   <%= render "layouts/heading" %>
   <%= render "layouts/sign_in" %>
 </nav>

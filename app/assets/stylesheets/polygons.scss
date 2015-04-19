@@ -7,7 +7,7 @@ text{
 .waterspot-logo{
   width:270px;
   height:170px;
-  margin:10px;
+  margin:14px;
   &:hover #waterspot{
     fill:$main-blue;
     stroke:$mid-blue;
@@ -77,10 +77,28 @@ text{
   width:417px;
   margin:0 auto;
   display:block;
+  @include media(600px) { bottom:1%; }
+  @include media(600px) { left:2%; }
+  @include media(585px) { bottom:-21%; }
+  @include media(585px) { left:-2%; }
+  @include media(458px) { display:none; }
 }
 
 .profile{
   position:absolute;
   top:9%;
   left:82%;
+
+  @include media(1220px) { left:81%; }
+  @include media(1110px) { left:80%; }
+  @include media(1090px) { left:78%; }
+  @include media(980px) { left:76%; }
+  @include media(930px) { left:74%; }
+  @include media(840px) { left:72%; }
+  @include media(810px) { left:70%; }
+  @include media(730px) { left:68%; }
+  @include media(670px) { left:66%; }
+  @include media(630px) { left:64%; }
+  @include media(600px) { left:62%; }
+
 }
