@@ -12,6 +12,7 @@ body{
   a{
     text-decoration:none;
     &:hover svg{
+      transition: fill .7s ease;
       fill:transparent;
     }
     &:hover text{
