@@ -11,9 +11,18 @@
   </g>
 </svg>
 
+<%= link_to "#" %>
+<svg id="new-spot">
+  <g>
+  <polygon points="95 66,147 56,127 24,21 6,4 18">
+  </polygon>
+  <text x=60 y=40 transform="rotate(20 90,0)">new spot</text>
+  </g>
+</svg>
+
 <section class="spot-unit">
   <figure>
-    <%=link_to "edit_user_spot" do %>
+    <%= link_to "edit_user_spot" do %>
     <%= image_tag "headwater.jpg", class:"water-pic" %>
   <% end %>
   </figure>
