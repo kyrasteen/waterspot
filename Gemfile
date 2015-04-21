@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'normalize-rails'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'omniauth-twitter'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'
