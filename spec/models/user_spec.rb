@@ -7,6 +7,11 @@ RSpec.describe User, type: :model do
       user = User.create(username: "kyra", email: "kyra@example.com", avatar: "giraffe.jpg")
       expect(user).to be_valid
     end
+
+    it "can have many spots" do
+      user = User.create(username: "kyra", email: "kyra@example.com", avatar: "giraffe.jpg")
+      expect(user.spots).to eq([])
+    end
   end
 
   context "is invalid" do

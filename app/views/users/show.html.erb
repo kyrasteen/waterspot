@@ -19,53 +19,18 @@
   </g>
 </svg>
 
+<% current_user.spots.each do |spot|  %>
 <section class="spot-unit">
   <figure>
-    <%= link_to "edit_user_spot", class:"hover-pic" do %>
-    <%= image_tag "headwater.jpg", class:"water-pic" %>
+    <%= link_to edit_user_spot_path(spot), class:"hover-pic" do %>
+    <%= image_tag spot.avatar, class:"water-pic" %>
   <% end %>
   </figure>
   <ul class="spot-specs">
-    <li>lat: 01.02.55</li>
-    <li>long: 03.25.44</li>
-    <li>posted: 03/11/2015</li>
+    <li>lat:<%= spot.lat %></li>
+    <li>long:<%= spot.long %></li>
+    <li>posted:<%= time_ago_in_words(spot.created_at) %></li>
   </ul>
 </section>
+<% end %>
 
-<section class="spot-unit">
-  <figure>
-    <%=link_to "edit_user_spot", class:"hover-pic" do %>
-    <%= image_tag "headwater.jpg", class:"water-pic" %>
-  <% end %>
-  </figure>
-  <ul class="spot-specs">
-    <li>lat: 01.02.55</li>
-    <li>long: 03.25.44</li>
-    <li>posted: 03/11/2015</li>
-  </ul>
-</section>
-
-<section class="spot-unit">
-  <figure>
-    <%=link_to "edit_user_spot", class:"hover-pic" do %>
-    <%= image_tag "headwater.jpg", class:"water-pic" %>
-  <% end %>
-  </figure>
-  <ul class="spot-specs">
-    <li>lat: 01.02.55</li>
-    <li>long: 03.25.44</li>
-    <li>posted: 03/11/2015</li>
-  </ul>
-</section>
-
-<section class="spot-unit">
-  <figure>
-    <%=link_to "edit_user_spot", class:"hover-pic" do %>
-    <%= image_tag "headwater.jpg", class:"water-pic" %>
-  <% end %>
-  </figure>
-  <ul class="spot-specs">
-    <li>lat: 01.02.55</li>
-    <li>long: 03.25.44</li>
-    <li>posted: 03/11/2015</li>
-  </ul>
