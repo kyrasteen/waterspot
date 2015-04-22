@@ -25,13 +25,8 @@
 </g>
 </svg>
 
-  <%= link_to '/auth/twitter', class: "login-twitter-link" do %>
-    <svg class="sign-in">
-      <g>
-      <polygon points="50% 0%, 88% 2%, 95% 14%, 73% 32%, 11% 11%, 2% 3%"></polygon>
-      <text x=40 y=40>sign in with twitter</text>
-      </g>
-    </svg>
-  <% end %>
+<p id="or">or</p>
+
+  <%= link_to "sign in with twitter", '/auth/twitter', class: "login-twitter-link"  %>
 
 <%= render partial: "shared/footer" %>
