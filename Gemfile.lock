@@ -38,6 +38,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (6.0.0)
+    bcrypt (3.1.10)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -198,6 +199,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   capybara-rails
   carrierwave
   coffee-rails (~> 4.1.0)
