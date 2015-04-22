@@ -7,6 +7,14 @@
     <%= f.label :long %>
     <%= f.text_field :long, placeholder: "longitude" %>
   </div>
+
+  <div class="form-group rating">
+    <div id="slider"></div>
+    <script>
+      var slider = $('#slider').CircularSlider();
+    </script>
+  </div>
+
   <div class="form-group">
     <%= f.submit "save" %>
   </div>
