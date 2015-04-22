@@ -31,10 +31,11 @@ class SessionsController < ApplicationController
 
   def user_login
     user = User.find_by(email: params[:session][:email])
-    if user
+    if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
+      flash[:error]="invalid information"
       render :new
     end
   end
