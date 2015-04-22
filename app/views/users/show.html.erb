@@ -1,38 +1,16 @@
 <aside class="user-specs">
-<%= image_tag "giraffe.jpg", class: "profile-pic" %>
-<h4>geraldchomps</h4>
-<h5>jerrygerald@gmail.com</h5>
+  <%= image_tag "giraffe.jpg", class: "profile-pic" %>
+  <h4>geraldchomps</h4>
+  <h5>jerrygerald@gmail.com</h5>
 </aside>
 
 <svg id="spots">
   <g>
-  <polygon points="151 68,179 38,175 5,56 7,6 33,13 57"></polygon>
-  <text x=60 y=40>spots</text>
+    <polygon points="151 68,179 38,175 5,56 7,6 33,13 57"></polygon>
+    <text x=60 y=40>spots</text>
   </g>
 </svg>
 
-<%= link_to new_user_spot_path(current_user), class:"new-spot"  do %>
-<svg id="new-spot">
-  <g>
-  <polygon points="95 66,147 56,127 24,21 6,4 18">
-  </polygon>
-  <text x=60 y=40 transform="rotate(20 90,0)">new spot</text>
-  </g>
-</svg>
-<% end %>
+<%= render partial: "users/new_spot" %>
 
-<% current_user.spots.each do |spot|  %>
-<section class="spot-unit">
-  <figure>
-    <%= link_to edit_user_spot_path(current_user, spot), class:"hover-pic" do %>
-    <%= image_tag spot.avatar, class:"water-pic" %>
-  <% end %>
-  </figure>
-  <ul class="spot-specs">
-    <li>lat:<%= spot.lat %></li>
-    <li>long:<%= spot.long %></li>
-    <li>posted:<%= time_ago_in_words(spot.created_at) %></li>
-  </ul>
-</section>
-<% end %>
-
+<%= render partial: "users/user_spots" %>

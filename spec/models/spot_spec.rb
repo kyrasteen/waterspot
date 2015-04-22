@@ -16,7 +16,7 @@ RSpec.describe Spot, type: :model do
       expect(spot).not_to be_valid
     end
 
-   xit "with incorrect latitude" do
+   it "with incorrect latitude" do
       user = User.create(username:'betty', email:'boo@example')
       spot = Spot.new(lat:'.4556', long: '38.94977778', user_id: user.id)
       expect(spot).not_to be_valid

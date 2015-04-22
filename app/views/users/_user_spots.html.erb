@@ -1,0 +1,15 @@
+<% current_user.spots.each do |spot|  %>
+<section class="spot-unit">
+  <figure>
+    <%= link_to edit_user_spot_path(current_user, spot), class:"hover-pic" do %>
+    <%= image_tag spot.avatar, class:"water-pic" %>
+  <% end %>
+  </figure>
+  <ul class="spot-specs">
+    <li>lat:<%= spot.lat %></li>
+    <li>long:<%= spot.long %></li>
+    <li>posted:<%= time_ago_in_words(spot.created_at) %> ago</li>
+  </ul>
+</section>
+<% end %>
+

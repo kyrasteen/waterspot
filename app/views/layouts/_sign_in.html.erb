@@ -9,14 +9,27 @@
   </svg>
 <% end %>
 
-<%= link_to '/auth/twitter', class: "login-link" do %>
-  <svg class="sign-in">
-    <g>
-    <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
-    <text x=40 y=40>sign in</text>
-    </g>
-  </svg>
+<% if current_user %>
+  <%= link_to logout_path, method: :delete, class: "login-link" do %>
+    <svg class="sign-in">
+      <g>
+      <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
+      <text x=40 y=40>sign out</text>
+      </g>
+    </svg>
+  <% end %>
+<% else %>
+
+  <%= link_to login_path, class: "login-link" do %>
+    <svg class="sign-in">
+      <g>
+      <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
+      <text x=40 y=40>sign in</text>
+      </g>
+    </svg>
+  <% end %>
 <% end %>
+
 
 <% if current_user %>
   <%= link_to user_path(current_user), class: "spot-link" do %>
