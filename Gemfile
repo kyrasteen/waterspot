@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'pry'
