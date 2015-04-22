@@ -10,17 +10,18 @@
   <%= csrf_meta_tags %>
 </head>
 
-  <ul id="menu">
+<ul id="menu">
   <h1><%= link_to "waterspot", root_path %></h1>
-    <li><a href="/login">login</a></li>
-    <li><a href="/users/new">register</a></li>
-    <li><a href="#">dashboard</a></li>
-  </ul>
-  <script>
-    $(function(){
-      $('#menu').slicknav();
-    });
-  </script>
+  <li><a href="/login">login</a></li>
+  <li><a href="/users/new">register</a></li>
+  <li><a href="#">dashboard</a></li>
+</ul>
+
+<script>
+  $(function(){
+    $('#menu').slicknav();
+  });
+</script>
 
 </nav>
 <nav class="large-nav">
@@ -28,6 +29,13 @@
   <%= render "layouts/sign_in" %>
 </nav>
 <body>
+
+  <div class="messsages">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
+  </div>
+
   <%= yield %>
 </body>
 </html>

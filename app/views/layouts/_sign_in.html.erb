@@ -1,30 +1,45 @@
 <div class="sign-up-login">
 
 <%= link_to new_user_path, class:"register-link"  do %>
-<svg class="register">
-  <g>
-  <polygon points="107 47,67 64,5 52,7 24,51 6,91 20"></polygon>
-  <text x=20 y=40>register</text>
-  </g>
-</svg>
+  <svg class="register">
+    <g>
+    <polygon points="107 47,67 64,5 52,7 24,51 6,91 20"></polygon>
+    <text x=20 y=40>register</text>
+    </g>
+  </svg>
 <% end %>
 
-<%= link_to '/auth/twitter', class: "login-link" do %>
-<svg class="sign-in">
-  <g>
-  <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
-  <text x=40 y=40>sign in</text>
-  </g>
-</svg>
+<% if current_user %>
+  <%= link_to logout_path, method: :delete, class: "login-link" do %>
+    <svg class="sign-in">
+      <g>
+      <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
+      <text x=40 y=40>sign out</text>
+      </g>
+    </svg>
+  <% end %>
+<% else %>
+
+  <%= link_to login_path, class: "login-link" do %>
+    <svg class="sign-in">
+      <g>
+      <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
+      <text x=40 y=40>sign in</text>
+      </g>
+    </svg>
+  <% end %>
 <% end %>
 
-<%= link_to "#", class: "spot-link" do %>
-<svg class="profile">
-  <g>
-  <polygon points="59 78,7 62,14 32,57 7,110 37,109 65"></polygon>
-  <text x=20 y=50>dashboard</text>
-  </g>
-</svg>
+
+<% if current_user %>
+  <%= link_to user_path(current_user), class: "spot-link" do %>
+    <svg class="profile">
+      <g>
+      <polygon points="59 78,7 62,14 32,57 7,110 37,109 65"></polygon>
+      <text x=20 y=50>dashboard</text>
+      </g>
+    </svg>
+  <% end %>
 <% end %>
 
 </div>

@@ -1,8 +1,25 @@
 class Spot < ActiveRecord::Base
-  validates :lat, presence: true
+  validates :lat,  presence: true
   validates :long, presence: true
-  validates_format_of :lat, with: /\A-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,8}\z/, on: create
-  validates_format_of :long, with: /\A-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,8}\z/, on: create
+  validate  :lat,  :latitude_format
+  validate  :long, :longitude_format
 
   belongs_to :user
+
+  mount_uploader :avatar, WaterPicUploader
+
+  private
+
+  def latitude_format
+   if !(lat.match(/\A\s*[-+]?\d{1,3}\.\d+\z/))
+     errors.add(:lat, "incorrect format")
+   end
+  end
+
+  def longitude_format
+    if !(long.match(/\A?[-+]?\d{1,3}\.\d+\s*\z/))
+     errors.add(:long, "incorrect format")
+    end
+  end
+
 end
