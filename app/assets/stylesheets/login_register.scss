@@ -32,10 +32,28 @@
 }
 
 .login-twitter-link{
-  position:absolute;
-  top:400;
-  fill:none;
-  stroke:$main-blue;
+  display:block;
+  margin:0 auto;
+  width:15%;
+  text-align:center;
+  margin-top:30px;
+  font-family:$main-font;
+  color:$main-blue;
+  position:relative;
+  z-index:100;
+  &:hover{
+    border:2px solid $mid-blue;
+  }
+}
+
+#or{
+  display:block;
+  width:20%;
+  margin:0 auto;
+  text-align:center;
+  margin-top: -270px;
+  font-size:1.3em;
+  color:$mid-blue;
 }
 
 .sign-up-login{
