@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       flash[:notice] = "Welcome to waterspot."
     else
-      flash[:error] = "invalid information"
+      flash[:error] = "duplicate information. *username must match twitter username"
       render :new
     end
   end
