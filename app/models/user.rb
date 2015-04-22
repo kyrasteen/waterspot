@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   def self.find_by_auth(data)
-    user = User.find_by(provider: data.provider, uid: data.uid)
+    user = User.find_or_create_by(provider: data.provider, uid: data.uid)
     if user
       user.username   = data.info.nickname
       user.avatar     = data.info.image
