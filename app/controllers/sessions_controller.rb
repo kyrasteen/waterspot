@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   private
 
   def oauth_login
-    user = User.find_by_auth(request.env['omniauth.auth'])
+    user = User.find_or_create_by_auth(request.env['omniauth.auth'])
     if user
       session[:user_id] = user.id
       redirect_to root_path
@@ -31,10 +31,11 @@ class SessionsController < ApplicationController
 
   def user_login
     user = User.find_by(email: params[:session][:email])
-    if user
+    if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
+      flash[:error]="invalid information"
       render :new
     end
   end

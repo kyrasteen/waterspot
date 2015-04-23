@@ -14,6 +14,7 @@ describe "User Register", :type => :feature do
   it "can register" do
     visit root_path
     find(".register-link").click
+    fill_in(:user_username, with: "betty@example.com")
     fill_in(:user_email, with: "betty@example.com")
     fill_in(:user_password, with: "password")
     click_link_or_button("sign up")
