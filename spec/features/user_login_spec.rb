@@ -1,10 +1,8 @@
 require "rails_helper"
 
 describe "User login", type: :feature do
-  xit "can sign in with twitter" do
-    visit root_path
-    find(".login-link").click
-    find(".login-twitter-link").click
-    expect(current_path).to be("/oauth/authenticate")
+  it "can sign in with twitter" do
+    user = User.create(username: "kyra", password: "password", email: "kyra@example.com")
+    login_user(user)
   end
 end
