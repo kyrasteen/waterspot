@@ -10,11 +10,11 @@
       </section>
       <section class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, id: "pass" %>
       </section>
       <section class="form-group">
         <%= f.label :confirm_password %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, id: "confirm"  %>
       </section>
       <section class="form-group">
         <%= f.submit "login" %>

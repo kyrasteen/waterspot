@@ -5,14 +5,17 @@ User.create(email: "lucy@example.com", password: "password", username: "lu")
 User.create(email: "henry@example.com", password: "password", username: "hen")
 
 def latitudes
-  [39.0000, 31.1200, 41.773, 36.000, 42.8833, 40.120, 30.977, 39.1899]
+  [33.5800, 51.8800, 37.773, 39.700, 42.4833, 38.820, 42.777, 48.8899]
 end
 
 def longitudes
-  [79.0000, 81.1200, 81.773, 86.000, 92.8833, 70.120, 80.977, 89.1899]
+  [-85.8500, -176.6500, -122.173, -104.800, -71.2833, -92.220, -73.877, -122.1899]
 end
 
+coordinates = latitudes.zip(longitudes)
+
 User.all.each do |user|
-  user.spots.create(lat: latitudes.sample, long: longitudes.sample)
+  coordinate = coordinates.sample
+  user.spots.create(lat: coordinate.first, long: coordinate.last)
 end
 

@@ -1,4 +1,5 @@
-require File.expand_path('../../config/environment', __FILE__)
+require 'simplecov'
+SimpleCov.start 'rails'
 
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
 
