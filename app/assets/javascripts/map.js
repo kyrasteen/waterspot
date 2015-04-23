@@ -9,16 +9,9 @@ $(document).ready(function() {
     map.panTo(e.layer.getLatLng());
   });
 
-  // DONE 0 - what does the datat look like? what what coords expect
-  // 1 - serve json from rails
-  // 2 - make an ajax request here for it
-  // 3 - take response data and plug into rails
-
   $.getJSON("/spots", function(data) {
-    // data already parsed into javascript by jquery
 
     data.forEach(function(spot) {
-      console.log('spot: ', spot);
       L.marker([Number(spot.lat), Number(spot.long)], {
         icon: L.mapbox.marker.icon({
           'marker-size': 'small',

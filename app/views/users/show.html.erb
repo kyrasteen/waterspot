@@ -1,7 +1,7 @@
 <aside class="user-specs">
-  <%= image_tag "giraffe.jpg", class: "profile-pic" %>
-  <h4>geraldchomps</h4>
-  <h5>jerrygerald@gmail.com</h5>
+  <%= image_tag current_user.avatar, class: "profile-pic" %>
+  <h4><%= current_user.username %></h4>
+  <h5><%= current_user.email %></h5>
   <%= link_to "new spot",  new_user_spot_path(current_user), class:"small-new-spot" %>
 </aside>
 

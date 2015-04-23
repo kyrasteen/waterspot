@@ -26,7 +26,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
    end
 
   # Process files as they are uploaded:
-   process :scale => [150, 200]
+   process :resize_to_fit => [150, 200]
   #
   # def scale(width, height)
   #   # do something

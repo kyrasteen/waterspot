@@ -8,6 +8,11 @@
     <%= f.text_field :long, placeholder: "longitude" %>
   </div>
 
+  <section class="form-group">
+    <%= f.file_field :avatar %><br>
+    <%= f.text_field :remote_avatar_url %>
+  </section>
+
   <div class="form-group rating">
     <div id="slider"></div>
     <script>
@@ -17,7 +22,7 @@
 
   <div class="form-group">
     <%= f.submit "save" %>
-<%= link_to "cancel", user_path(current_user), class: "cancel-link" %>
+    <%= link_to "cancel", user_path(current_user), class: "cancel-link" %>
   </div>
 <% end %>
 
