@@ -76,6 +76,7 @@
   li{
     text-align:left;
   }
+  @include media(850px) { width:40%; margin-top:-12%; margin-left:53%; }
   @include media(medium) { width:40%; margin-top:-17%; margin-left:53%; }
   @include media(590px) { margin-top:-15%; margin-left:51%; }
   @include media(475px) { width:40%; margin-top:-19%; margin-left:45%; }

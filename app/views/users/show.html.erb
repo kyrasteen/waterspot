@@ -2,6 +2,7 @@
   <%= image_tag "giraffe.jpg", class: "profile-pic" %>
   <h4>geraldchomps</h4>
   <h5>jerrygerald@gmail.com</h5>
+  <%= link_to "new spot",  new_user_spot_path(current_user), class:"small-new-spot" %>
 </aside>
 
 <svg id="spots">
@@ -14,3 +15,4 @@
 <%= render partial: "users/new_spot" %>
 
 <%= render partial: "users/user_spots" %>
+

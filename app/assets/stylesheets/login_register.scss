@@ -53,6 +53,7 @@
   text-align:center;
   margin-top: -270px;
   font-size:1.3em;
+  font-family:$main-font;
   color:$mid-blue;
 }
 
@@ -63,7 +64,7 @@
 
 .register-form, .login-form{
   width:80%;
-  top:33%;
+  top:27%;
   left:29%;
   position:absolute;
   z-index:100;

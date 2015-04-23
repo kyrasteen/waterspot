@@ -1,0 +1,11 @@
+@import 'base';
+
+#flash_notice{
+  background-color:$mid-blue;
+  text-align: center;
+}
+
+#flash_error{
+  background-color:red;
+  text-align:center;
+}

@@ -8,4 +8,10 @@ class Spot < ActiveRecord::Base
 
   mount_uploader :avatar, WaterPicUploader
 
+  def self.get_pins
+    coordinates = ""
+    all.each { |spot| coordinates += "[#{spot.lat}, #{spot.long}]," }
+    coordinates
+  end
+
 end

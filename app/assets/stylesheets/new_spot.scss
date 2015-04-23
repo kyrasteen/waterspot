@@ -1,0 +1,45 @@
+@import 'base';
+
+.new_spot{
+  width:60%;
+  margin:0 auto;
+  margin-top:40px;
+  text-align:center;
+  @include media(585px) { margin-top:122px; }
+}
+
+.rating{
+  text-align:center;
+}
+
+.cancel-link{
+  color:$mid-blue;
+  margin-left:5px;
+}
+
+.small-new-spot{
+  display:none;
+  @include media(870px) { display:block; margin:0 auto; width:20%; }
+  @include media(medium) { display:block; margin:0 auto; width:40%; }
+  font-family:$main-font;
+  color:$main-blue;
+  font-size:1.5em;
+  &:hover{
+    color:$mid-blue;
+  }
+}
+
+.jcs{
+  border-color:$mid-blue;
+}
+
+.jcs-value{
+  background-color:$main-blue;
+  border:2px solid $mid-blue;
+  color:$light-blue;
+}
+
+.jcs-indicator{
+  background-color:$main-blue;
+  border:1px solid $mid-blue;
+}
