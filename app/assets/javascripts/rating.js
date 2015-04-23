@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
   var slider = $('#slider').CircularSlider({
     radius: 75,
     innerCircleRatio: '0.5',
@@ -13,3 +15,4 @@
     slide: function(ui, value) {},
     formLabel: undefined
   });
+});
