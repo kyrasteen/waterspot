@@ -14,10 +14,9 @@
   </section>
 
   <div class="form-group rating">
-    <div id="slider"></div>
-    <script>
-      var slider = $('#slider').CircularSlider();
-    </script>
+    <%= f.range_field :rating, :min=>0, :max=>10, id:"slider"%>
+    <p>rating: </p>
+    <text id="val">5</text>
   </div>
 
   <div class="form-group">
@@ -26,3 +25,9 @@
   </div>
 <% end %>
 
+<script>
+  $("#slider").change(function () {
+    var newValue = $('#slider').val();
+    $("#val").html(newValue);
+  });
+</script>

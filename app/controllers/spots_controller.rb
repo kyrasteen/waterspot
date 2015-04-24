@@ -12,8 +12,9 @@ class SpotsController < ApplicationController
           coordinates: [spot.long.to_f, spot.lat.to_f]
         },
         properties: {
-          name: spot.user.username,
-          date: spot.created_at,
+          name:   spot.user.username,
+          date:   spot.formatted_date,
+          rating: spot.rating,
           :'marker-color' => '#00607d',
           :'marker-symbol' => 'circle',
           :'marker-size' => 'small'
@@ -27,7 +28,6 @@ class SpotsController < ApplicationController
     end
 
   end
-#  render json: @spots, status: :ok
 
 private
 

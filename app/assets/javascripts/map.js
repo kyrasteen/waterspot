@@ -11,7 +11,8 @@ $(document).ready(function() {
     var marker, popupContent, properties;
     marker = e.layer;
     properties = marker.feature.properties;
-    popupContent = '<p>hello </p>' + properties.name + properties.date
+    console.log(properties);
+    popupContent =  "<h3 class='popup'>user: " + properties.name + "</h3>" + "<h3 class='popup'> date: " + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300

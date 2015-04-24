@@ -16,6 +16,6 @@ coordinates = latitudes.zip(longitudes)
 
 User.all.each do |user|
   coordinate = coordinates.sample
-  user.spots.create(lat: coordinate.first, long: coordinate.last)
+  user.spots.create(lat: coordinate.first, long: coordinate.last, rating:rand(1..10).to_s)
 end
 

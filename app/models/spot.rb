@@ -1,6 +1,7 @@
 class Spot < ActiveRecord::Base
   validates :lat,  presence: true
   validates :long, presence: true
+  validates :rating, presence: true
   validates_numericality_of :lat
   validates_numericality_of :long
 
@@ -8,10 +9,8 @@ class Spot < ActiveRecord::Base
 
   mount_uploader :avatar, WaterPicUploader
 
-  def self.get_pins
-    coordinates = ""
-    all.each { |spot| coordinates += "[#{spot.lat}, #{spot.long}]," }
-    coordinates
+  def formatted_date
+    created_at.strftime("%A, %b %d")
   end
 
 end

@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
+
   validates :username, presence: true, uniqueness: true
 
   has_secure_password
   has_many :spots
+  accepts_nested_attributes_for :spots, reject_if: :invalid_coordinates
 
   mount_uploader :avatar, AvatarUploader
 
@@ -16,5 +18,12 @@ class User < ActiveRecord::Base
       user.save
       return user
     end
+  end
+
+  private
+
+  def invalid_coordinates(attributes)
+    attributes['lat'] =~ /\A(\-?\d+(\.\d+)?)\z/
+    attributes['long'] =~ /\A(\-?\d+(\.\d+)?)\z/
   end
 end
