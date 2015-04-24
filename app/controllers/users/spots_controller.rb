@@ -17,7 +17,7 @@ class Users::SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:lat, :long, :avatar, :remote_avatar_url)
+    params.require(:spot).permit(:lat, :long, :rating, :avatar, :remote_avatar_url)
   end
 
 end

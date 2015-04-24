@@ -6,8 +6,9 @@
   <% end %>
   </figure>
   <ul class="spot-specs">
-    <li>lat: <%= spot.lat %></li>
-    <li>long: <%= spot.long %></li>
+    <li>latitude: <%= spot.lat %></li>
+    <li>longitude: <%= spot.long %></li>
+    <li>rating: <%= spot.rating %></li>
     <li>posted: <%= time_ago_in_words(spot.created_at) %> ago</li>
   </ul>
 </section>
