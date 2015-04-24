@@ -24,14 +24,15 @@ class SpotsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @geojson }  # respond with the created JSON object
+      format.json { render json: @geojson }
     end
 
   end
 
-private
+  private
 
-def spot_params
-  params.require(:spot).permit(:lat, :long)
-end
+  def spot_params
+    params.require(:spot).permit(:lat, :long)
+  end
+
 end

@@ -57,8 +57,9 @@
     position:absolute;
     top:410;
     @include media(medium) { top:214px; }
-    @include media(590px) { top:353px; margin-left:8%; }
+    @include media(590px) { top:230px; margin-left:8%; }
     @include media(470px) { top:94px; margin-left:59%; }
+    @include media(440px) { margin-left:47%; }
   }
   h4{
     top:390;

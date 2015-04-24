@@ -1,10 +1,8 @@
-<%= link_to "#"  do %>
-  <svg>
+<%= link_to user_path(current_user), class: "spot-link" do %>
+  <svg class="profile">
     <g>
-      <polygon points="59 78,7 62,14 32,57 7,110 37,109 65">
-          </polygon>
-
-    <text class="waterspot" x=40 y=70>my profile</text>
+    <polygon points="59 78,7 62,14 32,57 7,110 37,109 65"></polygon>
+    <text x=22 y=50>dashboard</text>
     </g>
   </svg>
 <% end %>

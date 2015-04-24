@@ -5,19 +5,12 @@
       <svg class="sign-in">
         <g>
         <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
-        <text x=40 y=40>sign out</text>
+        <text x=45 y=40>sign out</text>
         </g>
       </svg>
     <% end %>
 
-    <%= link_to user_path(current_user), class: "spot-link" do %>
-      <svg class="profile">
-        <g>
-        <polygon points="59 78,7 62,14 32,57 7,110 37,109 65"></polygon>
-        <text x=20 y=50>dashboard</text>
-        </g>
-      </svg>
-    <% end %>
+    <%= render partial: "layouts/dash_link" %>
 
   <% else %>
 
@@ -34,7 +27,7 @@
       <svg class="sign-in">
         <g>
         <polygon points="5 48,32 63,128 58,139 27,82 2,27 27"></polygon>
-        <text x=40 y=40>sign in</text>
+        <text x=45 y=40>sign in</text>
         </g>
       </svg>
     <% end %>

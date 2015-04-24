@@ -17,10 +17,16 @@
   margin-left:5px;
 }
 
-.small-new-spot{
+.slicknav_nav a.small-new-spot{
+  margin:0 auto;
+}
+
+a.small-new-spot{
   display:none;
+  text-align:center;
   @include media(870px) { display:block; margin:0 auto; width:20%; }
   @include media(medium) { display:block; margin:0 auto; width:40%; }
+  @include media(585px) { display:none;}
   font-family:$main-font;
   color:$main-blue;
   font-size:1.5em;
