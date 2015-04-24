@@ -4,34 +4,36 @@ class SpotsController < ApplicationController
     @spots = Spot.all
     @geojson = Array.new
 
-    @spots.each do |spot|
-      @geojson << {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [spot.long.to_f, spot.lat.to_f]
-        },
-        properties: {
-          name:   spot.user.username,
-          date:   spot.formatted_date,
-          rating: spot.rating,
-          :'marker-color' => '#00607d',
-          :'marker-symbol' => 'circle',
-          :'marker-size' => 'small'
+    if current_user
+      @spots.each do |spot|
+        @geojson << {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [spot.long.to_f, spot.lat.to_f]
+          },
+          properties: {
+            name:   spot.user.username,
+            date:   spot.formatted_date,
+            rating: spot.rating,
+            :'marker-color' => '#00607d',
+            :'marker-symbol' => 'circle',
+            :'marker-size' => 'small'
+          }
         }
-      }
-    end
+      end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @geojson }  # respond with the created JSON object
+      respond_to do |format|
+        format.html
+        format.json { render json: @geojson }
+      end
     end
-
   end
 
-private
+  private
 
-def spot_params
-  params.require(:spot).permit(:lat, :long)
-end
+  def spot_params
+    params.require(:spot).permit(:lat, :long)
+  end
+
 end

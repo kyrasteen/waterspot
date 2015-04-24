@@ -1,15 +1,15 @@
 class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
   has_secure_password
   has_many :spots
-  accepts_nested_attributes_for :spots, reject_if: :invalid_coordinates
 
   mount_uploader :avatar, AvatarUploader
 
   def self.find_or_create_by_auth(data)
-    user = User.find_or_create_by(username: data.info.nickname )
+    user = User.find_by(username: data.info.nickname )
     if user
       user.avatar     = data.info.image
       user.token      = data.credentials.token
