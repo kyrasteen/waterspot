@@ -29,6 +29,7 @@ class SpotsController < ApplicationController
       end
     else
       redirect_to root_path
+      @spots = nil
     end
   end
 
