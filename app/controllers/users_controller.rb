@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] =@user.id
+      UserNotifier.send_signup_email(@user).deliver
       redirect_to user_path(@user)
       flash[:notice] = "Welcome to waterspot."
     else
