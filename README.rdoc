@@ -1,28 +1,10 @@
-== README
+# Waterspot
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## crowd sourced stream flow data
 
-Things you may want to cover:
+This was a three week project for the Turing School. I was the sole contributor,
+and implemented every part of this project. During this project I was taught how to
+consume an api and use ajax and json to render data in my application.
 
-* Ruby version
+https://waterspot.herokuapp.com
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
