@@ -80,7 +80,7 @@ $(document).ready(function() {
     marker = e.layer;
     properties = marker.feature.properties;
     popupContent = "<h3 class='gauge-pop'>gauge name: " + properties.name + "</h3>" +
-      "<h3 class='gauge-pop'>cfs: " + properties.value + " </h3>"
+                   "<h3 class='gauge-pop'>cfs: " + properties.value + " </h3>"
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300
@@ -94,7 +94,7 @@ $(document).ready(function() {
     marker = e.layer;
     properties = marker.feature.properties;
     popupContent = "<h3 class='popup'>user: " + properties.name + "</h3>" + "<h3 class='popup'> date: "
-    + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
+                 + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300
