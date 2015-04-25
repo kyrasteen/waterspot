@@ -4,6 +4,7 @@ class Users::SpotsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @spot = current_user.spots.new(spot_params)
     if @spot.save
       flash[:notice] = "Spot saved"

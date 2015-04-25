@@ -21,23 +21,25 @@ describe "User Spots", :type => :feature do
       expect(page).not_to have_content(other_user.spots.last.lat)
     end
 
-    xit "can make a new spot" do
+    it "can make a new spot" do
       visit user_path(@user)
       visit new_user_spot_path(@user)
       fill_in('spot_lat', with: 38.00112)
       fill_in('spot_long', with: -48.00112)
+      fill_in('slider', with: "8")
       click_link_or_button("save")
       expect(page).to have_content("Spot saved")
       expect(page).to have_content(-48.00112)
     end
 
-   xit"cannot make a spot with invalid data" do
+   it"cannot make a spot with invalid data" do
       visit user_path(@user)
       visit new_user_spot_path(@user)
       fill_in('spot_lat', with: '3a.0112')
       fill_in('spot_long', with: -48.00112)
       click_link_or_button("save")
       expect(page).not_to have_content("Spot saved")
+      expect(page).to have_content("Check the format")
     end
   end
 end
