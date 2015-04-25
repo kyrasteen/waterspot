@@ -27,6 +27,8 @@ class SpotsController < ApplicationController
         format.html
         format.json { render json: @geojson }
       end
+    else
+      redirect_to root_path
     end
   end
 
