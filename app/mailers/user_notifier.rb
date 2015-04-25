@@ -1,5 +1,5 @@
 class UserNotifier < ApplicationMailer
-  default :from => 'waterspot@gmail.com'
+  default :from => 'waterspotapp@gmail.com'
 
   def send_signup_email(user)
     @user = user
