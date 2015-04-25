@@ -26,3 +26,21 @@ footer{
     font-size:.8em;
   }
 }
+
+.icon, .git-icon, .ello-icon{
+  width:20px;
+  height:auto;
+  position:absolute;
+  top:21;
+  left:4%;
+  opacity:.8;
+}
+
+.git-icon{
+  left:11%;
+  width:25px;
+}
+
+.ello-icon{
+  left:19.5%;
+}
