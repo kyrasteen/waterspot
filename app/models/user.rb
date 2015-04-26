@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   has_secure_password
-  has_many :spots
+  has_many :spots, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 

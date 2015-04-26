@@ -4,6 +4,7 @@ class SpotsController < ApplicationController
     @spots = Spot.all
     @geojson = Array.new
 
+    if current_user
     @spots.each do |spot|
       @geojson << {
         type: 'Feature',
@@ -25,6 +26,11 @@ class SpotsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @geojson }
+    end
+
+    else
+      @spot = []
+      redirect_to root_path
     end
 
   end
