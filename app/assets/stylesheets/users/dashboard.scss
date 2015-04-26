@@ -22,7 +22,7 @@
   padding-left:30px;
   text{
     stroke:none;
-    fill:$main-blue;
+    fill:$light-blue;
     font-size:1.3em;
   }
   @include media(1000px) { margin-left:36%; }
@@ -30,20 +30,21 @@
 }
 
 #new-spot{
-  fill:none;
+  position:absolute;
+  fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  position:absolute;
   left:53%;
   top:30%;
   &:hover{
-    fill:$main-blue;
+  transition: fill .7s ease;
+    fill:none;
     text{
-      fill:$light-blue;
+      fill:$main-blue;
     }
   }
   text{
-    fill:$main-blue;
+    fill:$light-blue;
     stroke:none;
   }
   @include media(870px) { display:none; }
@@ -53,6 +54,7 @@
   display:inline;
   margin-left:30px;
   h5, h4{
+    background-color:$mid-blue;
     margin-left:5%;
     position:absolute;
     top:410;

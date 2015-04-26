@@ -1,11 +1,12 @@
 @import 'base';
 
 .new_spot{
+  top:38%;
+  left:20%;
+  position:absolute;
+  z-index:100;
   width:60%;
-  margin:0 auto;
-  padding-top:15%;
   text-align:center;
-  @include media(585px) { margin-top:122px; }
 }
 
 .rating{
