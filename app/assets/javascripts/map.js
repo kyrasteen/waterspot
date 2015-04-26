@@ -6,6 +6,47 @@ $(document).ready(function() {
   .addControl(L.mapbox.shareControl());
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
+  var featureGroup = L.featureGroup().addTo(map);
+
+  var drawControl = new L.Control.Draw({
+    edit: {
+      featureGroup: featureGroup
+    },
+    draw: {
+      polygon: true,
+      polyline: false,
+      rectangle: false,
+      circle: false,
+      marker: false
+    }
+  }).addTo(map);
+
+  map.on('draw:created', showPolygonArea);
+  map.on('draw:edited', showPolygonAreaEdited);
+  map.on('draw:created', savePolygon);
+
+  function savePolygon(e) {
+    var type = e.layerType;
+    var layer = e.layer;
+    return layer.toGeoJSON();
+  }
+
+  $.ajax({
+    url : "/:slug/polygons.json",
+    type : "post",
+    data : { data_value: JSON.stringify(savePolygon) }
+  });
+
+  function showPolygonAreaEdited(e) {
+    e.layers.eachLayer(function(layer) {
+      showPolygonArea({ layer: layer });
+    });
+  }
+  function showPolygonArea(e) {
+    featureGroup.clearLayers();
+    featureGroup.addLayer(e.layer);
+  }
+
   var spotLayer = L.mapbox.featureLayer().addTo(map);
   var stationLayer = L.mapbox.featureLayer().addTo(map);
 
@@ -80,7 +121,7 @@ $(document).ready(function() {
     marker = e.layer;
     properties = marker.feature.properties;
     popupContent = "<h3 class='gauge-pop'>gauge name: " + properties.name + "</h3>" +
-                   "<h3 class='gauge-pop'>cfs: " + properties.value + " </h3>"
+      "<h3 class='gauge-pop'>cfs: " + properties.value + " </h3>"
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300
@@ -94,7 +135,7 @@ $(document).ready(function() {
     marker = e.layer;
     properties = marker.feature.properties;
     popupContent = "<h3 class='popup'>user: " + properties.name + "</h3>" + "<h3 class='popup'> date: "
-                 + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
+    + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300
@@ -105,8 +146,7 @@ $(document).ready(function() {
     dataType: 'text',
     url: '/spots.json',
     success: function(data) {
-      var geojson;
-      geojson = $.parseJSON(data);
+      var geojson = $.parseJSON(data);
       return spotLayer.setGeoJSON(geojson);
     }
   });
