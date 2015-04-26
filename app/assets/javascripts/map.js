@@ -2,7 +2,7 @@ $(document).ready(function() {
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
 
   var map = L.mapbox.map('map', 'kyraweber.lp8mldi9')
-  .setView([40, -94.50], 4)
+  .setView([39.7, -104.50], 7)
   .addControl(L.mapbox.shareControl());
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
