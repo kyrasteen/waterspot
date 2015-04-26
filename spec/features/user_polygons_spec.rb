@@ -7,8 +7,17 @@ describe "User Polygons", :type => :feature do
     login_user(@user)
   end
 
-  it "as an authenticated user, I can create a polygon" do
-    @user.polygons.create(shape:"hello")
-    expect(@user.polygons.first.shape).to eq("hello")
+  context "as an authenticated user" do
+
+    it "as an authenticated user, I can create a polygon" do
+      @user.polygons.create(shape:"hello")
+      expect(@user.polygons.first.shape).to eq("hello")
+    end
+
+    it "when I draw a polygon on the map, it is saved" do
+
+    end
+
   end
+
 end

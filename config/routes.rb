@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :users, as: :user, path: "/:slug" do
     resources :spots, except: [:show]
+    resources :polygons, only: :create
   end
 
 end

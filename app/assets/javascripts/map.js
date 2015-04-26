@@ -28,14 +28,15 @@ $(document).ready(function() {
   function savePolygon(e) {
     var type = e.layerType;
     var layer = e.layer;
-    return layer.toGeoJSON();
-  }
+    var geopolygon = layer.toGeoJSON();
 
-  $.ajax({
-    url : "/:slug/polygons.json",
-    type : "post",
-    data : { data_value: JSON.stringify(savePolygon) }
-  });
+    $.ajax({
+      url : "/:slug/polygons.json",
+      type : "post",
+      data : { data_value: JSON.stringify(geopolygon) }
+    });
+
+  }
 
   function showPolygonAreaEdited(e) {
     e.layers.eachLayer(function(layer) {
