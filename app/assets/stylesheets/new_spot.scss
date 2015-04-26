@@ -3,7 +3,7 @@
 .new_spot{
   width:60%;
   margin:0 auto;
-  margin-top:40px;
+  padding-top:15%;
   text-align:center;
   @include media(585px) { margin-top:122px; }
 }

@@ -8,16 +8,9 @@ text{
   width:270px;
   height:170px;
   margin:14px;
-  #waterspot{
-    fill:none;
-    stroke:$main-blue;
-  }
-  &:hover #waterspot{
-    fill:$main-blue;
-    stroke:$mid-blue;
-  }
-  text:hover{
-    fill:$light-blue;
+  &:hover polygon{
+    transition: fill .7s ease;
+    fill:transparent;
   }
 
   polygon{
@@ -27,7 +20,7 @@ text{
   }
 
   text{
-    fill:$main-blue;
+    fill:$light-blue;
     font-size:2em;
   }
   .socail, .flow, .data{
@@ -52,53 +45,52 @@ text{
   stroke:$mid-blue;
   stroke-width:4px;
 
-    text{
-      stroke:none;
-      fill:$light-blue;
-    }
+  text{
+    stroke:none;
+    fill:$light-blue;
   }
+}
 
-  .sign-in{
-    width:165px;
-    margin-top:30px;
-  }
+.sign-in{
+  width:165px;
+  margin-top:30px;
+}
 
-  .register{
-    width:117px;
-  }
+.register{
+  width:117px;
+}
 
-  .border{
-    fill:none;
-    stroke:$main-blue;
-    stroke-width:4px;
-    position:relative;
-    z-index:0;
-    height:500px;
-    width:417px;
-    margin:0 auto;
-    display:block;
-    @include media(600px) { bottom:1%; }
-    @include media(600px) { left:2%; }
-    @include media(585px) { bottom:-21%; }
-    @include media(585px) { left:-2%; }
-    @include media(458px) { display:none; }
-  }
+.border{
+  fill:none;
+  stroke:$main-blue;
+  stroke-width:4px;
+  height:500px;
+  width:417px;
+  margin:0 auto;
+  padding-top:17%;
+  display:block;
+  @include media(600px) { bottom:1%; }
+  @include media(600px) { left:2%; }
+  @include media(585px) { bottom:-21%; }
+  @include media(585px) { left:-2%; }
+  @include media(458px) { display:none; }
+}
 
-  .profile{
-    position:absolute;
-    top:9%;
-    left:82%;
+.profile{
+  position:absolute;
+  top:41%;
+  left:82%;
 
-    @include media(1220px) { left:81%; }
-    @include media(1110px) { left:80%; }
-    @include media(1090px) { left:78%; }
-    @include media(980px) { left:76%; }
-    @include media(930px) { left:74%; }
-    @include media(840px) { left:72%; }
-    @include media(810px) { left:70%; }
-    @include media(730px) { left:68%; }
-    @include media(670px) { left:66%; }
-    @include media(630px) { left:64%; }
-    @include media(600px) { left:62%; }
+  @include media(1220px) { left:81%; }
+  @include media(1110px) { left:80%; }
+  @include media(1090px) { left:78%; }
+  @include media(980px) { left:76%; }
+  @include media(930px) { left:74%; }
+  @include media(840px) { left:72%; }
+  @include media(810px) { left:70%; }
+  @include media(730px) { left:68%; }
+  @include media(670px) { left:66%; }
+  @include media(630px) { left:64%; }
+  @include media(600px) { left:62%; }
 
-  }
+}
