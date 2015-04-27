@@ -24,3 +24,58 @@ body{
   }
 
 }
+
+#popup{
+  position:absolute;
+  width:400px;
+  height:380px;
+  background:rgba(255, 255, 255, 0.92);
+  border:5px solid $mid-blue;
+  left:65%;
+  top:40%;
+  padding:10px;
+  margin-left:-320px;
+  margin-top:-150px;
+  text-align:left;
+  ol{
+    margin-top:0px;
+    font-family:$main-font;
+    font-size:1.3em;
+    color:$light-blue;
+    position:relative;
+    z-index:1000;
+    padding:10px;
+    li{
+      margin:10px 0;
+      font-size:.9em;
+    }
+  }
+  #content{
+    background-color:$main-blue;
+    height:95%;
+    padding:10px;
+  }
+}
+
+#close{
+  position:absolute;
+  background:$main-blue;
+  color:$light-blue;
+  right:-15px;
+  top:-15px;
+  width:30px;
+  height:30px;
+  line-height:30px;
+  text-align:center;
+  font-size:8px;
+  font-family:$main-font;
+  cursor:pointer;
+}
+
+.show{
+  display:block !important;
+}
+
+.hide{
+  display:none !important;
+}

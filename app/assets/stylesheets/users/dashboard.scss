@@ -34,7 +34,7 @@
   fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  left:53%;
+  left:54%;
   top:30%;
   &:hover{
   transition: fill .7s ease;
@@ -47,7 +47,9 @@
     fill:$light-blue;
     stroke:none;
   }
-  @include media(870px) { display:none; }
+  @include media(870px)  { display:none; }
+  @include media(1000px) { left:56%; }
+  @include media(950px)  { left:57%; }
 }
 
 .user-specs{

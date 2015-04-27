@@ -9,10 +9,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :spots, only: [:index]
+  resources :polygons, only: [:index]
 
   namespace :users, as: :user, path: "/:slug" do
     resources :spots, except: [:show]
-    resources :polygons, only: :create
+    resources :polygons, only: [:create]
   end
 
 end

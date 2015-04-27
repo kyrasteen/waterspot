@@ -69,6 +69,9 @@ text{
   margin:0 auto;
   padding-top:17%;
   display:block;
+  @include media(1040px) { padding-top:21%; }
+  @include media(875px) { padding-top:26%; }
+  @include media(755px) { padding-top:31%; }
   @include media(600px) { bottom:1%; }
   @include media(600px) { left:2%; }
   @include media(585px) { bottom:-21%; }

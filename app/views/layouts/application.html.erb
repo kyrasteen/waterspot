@@ -1,19 +1,21 @@
 <html>
-  <head>
-    <title>Waterspot</title>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
-  </head>
+<head>
+  <title>Waterspot</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' rel='stylesheet' />
+  <%= csrf_meta_tags %>
+</head>
 
-  <%= render partial: "layouts/nav" %>
+<%= render partial: "layouts/nav" %>
 
-  <body>
-    <div class="messsages">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
-    </div>
-    <%= yield %>
-  </body>
+<body>
+  <div class="messsages">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
+  </div>
+  <%= yield %>
+</body>
 </html>

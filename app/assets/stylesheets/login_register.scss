@@ -71,7 +71,7 @@
   top:38%;
   left:29%;
   position:absolute;
-  z-index:100;
+  z-index:10;
 
   @include media(1200px) { left:28%; }
   @include media(1100px) { left:27%; }
@@ -86,6 +86,6 @@
   @include media(660px)  { left:18%; }
   @include media(630px)  { left:17%; }
   @include media(600px)  { left:13%; }
-  @include media(458px)  { top:12%;  }
+  @include media(458px)  { top:12%; background-color:rgba(255, 255, 255, 0.82);}
   @include media(380px)  { left:13%; }
 }

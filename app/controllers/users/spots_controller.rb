@@ -6,6 +6,7 @@ class Users::SpotsController < ApplicationController
   def create
     @user = current_user
     @spot = current_user.spots.new(spot_params)
+
     if @spot.save
       flash[:notice] = "Spot saved"
       redirect_to user_path(current_user)

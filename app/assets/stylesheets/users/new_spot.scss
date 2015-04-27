@@ -7,10 +7,28 @@
   z-index:100;
   width:60%;
   text-align:center;
+  @include media(550px) { top:31%; width:70%; left:13%; }
+  @include media(458px) { background-color:rgba(255, 255, 255, 0.82); }
 }
 
 .rating{
   text-align:center;
+  p{
+    display:inline;
+  }
+}
+
+#rating{
+  font-size:1.2em;
+  cursor:pointer;
+  margin-right:2%;
+  &:hover{
+    color:$mid-blue;
+  }
+}
+
+text#val{
+  display:inline;
 }
 
 .cancel-link{
@@ -25,30 +43,18 @@
 a.small-new-spot{
   display:none;
   text-align:center;
+  background-color:$mid-blue;
+  position:relative;
+  top:200px;
   @include media(870px) { display:block; margin:0 auto; width:20%; }
   @include media(medium) { display:block; margin:0 auto; width:40%; }
-  @include media(585px) { display:none;}
   font-family:$main-font;
   color:$main-blue;
   font-size:1.5em;
   &:hover{
     color:$mid-blue;
+    background-color:$main-blue;
   }
-}
-
-.jcs{
-  border-color:$mid-blue;
-}
-
-.jcs-value{
-  background-color:$main-blue;
-  border:2px solid $mid-blue;
-  color:$light-blue;
-}
-
-.jcs-indicator{
-  background-color:$main-blue;
-  border:1px solid $mid-blue;
 }
 
 .hidden{
@@ -57,4 +63,5 @@ a.small-new-spot{
 
 #spot_avatar{
   margin:10px;
+  width:215px;
 }

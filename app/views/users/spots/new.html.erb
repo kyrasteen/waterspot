@@ -19,10 +19,29 @@
           </section>
 
           <div class="form-group rating">
-            <%= f.range_field :rating, :min=>0, :max=>10, id:"slider"%>
+            <%= f.range_field :rating, :min=>0, :max=>10, id:"slider"%><br>
+            <p id="rating">?</p>
             <p>rating: </p>
             <text id="val">5</text>
           </div>
+
+           <div id="popup", class="hidden">
+             <div id="close">X</div>
+             <div id="content">
+               <ol>rating system:
+                 <li>1: Alert-no water</li>
+                 <li>2: trickle</li>
+                 <li>3: sufficient for drinking</li>
+                 <li>4: steady cfs/</li>
+                 <li>5: swift, but still narrow</li>
+                 <li>6: boatable/good fishing</li>
+                 <li>7: class I-II,white-water</li>
+                 <li>8: high cfs, class II-III white-water</li>
+                 <li>9: Higher than average cfs</li>
+                 <li>10: Danger-flooding</li>
+               </ol>
+             </div>
+           </div>
 
           <div class="form-group">
             <%= f.submit "save" %>
@@ -38,6 +57,14 @@
   $("#slider").change(function () {
     var newValue = $('#slider').val();
     $("#val").html(newValue);
+  });
+
+  $("#rating").on("click", function() {
+    $("#popup").addClass("show");
+  });
+
+  $("#close").click(function(){
+    $("#popup").addClass("hide");
   });
 </script>
 

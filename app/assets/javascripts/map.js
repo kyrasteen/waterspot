@@ -48,6 +48,17 @@ $(document).ready(function() {
     featureGroup.addLayer(e.layer);
   }
 
+  function getPolygons() {
+    $.ajax({
+      dataType: 'text',
+      url: "/polygons.json",
+      type: "get",
+      success: function(data) {
+        var geopolygons = $.parseJSON(data);
+      }
+    });
+  }
+
   var spotLayer = L.mapbox.featureLayer().addTo(map);
   var stationLayer = L.mapbox.featureLayer().addTo(map);
 
