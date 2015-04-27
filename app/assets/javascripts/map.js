@@ -3,8 +3,6 @@ $(document).ready(function() {
 
   var map = L.mapbox.map('map', 'kyraweber.lp8mldi9')
   .setView([39.7, -104.50], 7)
-  .addControl(L.mapbox.shareControl());
-  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
   var featureGroup = L.featureGroup().addTo(map);
 
@@ -29,13 +27,55 @@ $(document).ready(function() {
     var type = e.layerType;
     var layer = e.layer;
     var geopolygon = layer.toGeoJSON();
-
     $.ajax({
       url : "/:slug/polygons.json",
       type : "post",
       data : { data_value: JSON.stringify(geopolygon) }
     });
+  }
 
+  //every time a spot is saved (rubyland)
+  //get all polygons from db
+  //get that saved spot
+  //check through turf to see if spot is in any polygons
+  //where true post polygon and spot to ruby
+  //rubyland sends email to polygon user with spot info
+  //
+
+//get all polygons from db
+  function getPolygons() {
+    $.ajax({
+      dataType: 'text',
+      url: '/polygons.json',
+      success: function(data) {
+        json = $.parseJSON(data);
+        setPolygons(json);
+      }
+    })
+  }
+
+//get spot from db
+  //
+  $.ajax({
+    dataType: 'text',
+    url: '/:slug/spots/:id.json',
+    type: "get",
+    success: function(data) {
+      var spot = $.parseJSON(data);
+    }
+  });
+
+  //check to see if spot is inside polygon
+  //
+  function turfInside(polygon, spot) {
+   if(turf.inside(spot, polygon)) {
+    $.ajax({
+      dataType: 'text',
+      type: 'post',
+      url: '/area_watch.json',
+      data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
+    })
+   }
   }
 
   function showPolygonAreaEdited(e) {
@@ -46,17 +86,6 @@ $(document).ready(function() {
   function showPolygonArea(e) {
     featureGroup.clearLayers();
     featureGroup.addLayer(e.layer);
-  }
-
-  function getPolygons() {
-    $.ajax({
-      dataType: 'text',
-      url: "/polygons.json",
-      type: "get",
-      success: function(data) {
-        var geopolygons = $.parseJSON(data);
-      }
-    });
   }
 
   var spotLayer = L.mapbox.featureLayer().addTo(map);
@@ -106,7 +135,7 @@ $(document).ready(function() {
   var geojson = []
 
   function parse_station(value) {
-    station = {
+    var station = {
       type: "Feature",
       "geometry": {
         "type": "Point",

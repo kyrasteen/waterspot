@@ -46,8 +46,10 @@ a.small-new-spot{
   background-color:$mid-blue;
   position:relative;
   top:200px;
-  @include media(870px) { display:block; margin:0 auto; width:20%; }
-  @include media(medium) { display:block; margin:0 auto; width:40%; }
+  @include media(870px)  { display:block; margin:0 auto; width:20%; }
+  @include media(medium) { width:40%; }
+  @include media(575px)  { display:inline; float:right; top:102; }
+  @include media(470px)  { top:61; }
   font-family:$main-font;
   color:$main-blue;
   font-size:1.5em;

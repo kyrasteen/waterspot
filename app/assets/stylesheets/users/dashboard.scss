@@ -80,6 +80,8 @@
   text-align:center;
   li{
     text-align:left;
+    background-color:$mid-blue;
+    padding:0 3px;
   }
   @include media(850px) { width:40%; margin-top:-12%; margin-left:53%; }
   @include media(medium) { width:40%; margin-top:-17%; margin-left:53%; }
@@ -109,5 +111,6 @@
   &:first-of-type{
     @include media(medium) { margin-top:196px; }
   }
+  @include media(890px) { margin-top:250px; padding-bottom:3px; }
   @include media(medium) { margin-top:20px; padding-bottom:3px; }
 }
