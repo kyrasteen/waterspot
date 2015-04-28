@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426220515) do
+ActiveRecord::Schema.define(version: 20150428132405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20150426220515) do
     t.integer  "user_id"
   end
 
+  add_index "polygons", ["user_id"], name: "index_polygons_on_user_id", using: :btree
+
   create_table "spots", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "avatar"
@@ -32,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150426220515) do
     t.decimal  "long",       precision: 10, scale: 7
     t.string   "rating"
   end
+
+  add_index "spots", ["user_id"], name: "index_spots_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
