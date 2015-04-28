@@ -15,7 +15,6 @@
 <%= render partial: "layouts/nav" %>
 
 <body>
-  <div id='map' class="hide"></div>
   <div class="messsages">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, id: "flash_#{name}" %>

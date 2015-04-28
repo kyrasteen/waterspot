@@ -6,7 +6,6 @@ $(document).ready(function() {
       success: function(data) {
         var polygons = data;
 
-
         $.ajax({
           dataType: 'json',
           url: '/:slug/spots/:id.json',
@@ -15,7 +14,7 @@ $(document).ready(function() {
             geoSpot = formatGeoJson(spot)
             polygons.forEach(function(polygon) {
               geoPolygon = polygon["shape"]
-              turfInside(geoPolygon, geoSpot);
+   //           turfInside(geoPolygon, geoSpot);
             });
           },
         });
@@ -36,16 +35,16 @@ $(document).ready(function() {
       return formatted_spot;
     }
 
-    function turfInside(polygon, spot) {
-      if(turf.inside(spot, polygon)) {
-        $.ajax({
-          dataType: 'text',
-          type: 'post',
-          url: '/area_watch.json',
-          data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
-        })
-      }
-    }
+   // function turfInside(polygon, spot) {
+   //   if(turf.inside(spot, polygon)) {
+   //     $.ajax({
+   //       dataType: 'text',
+   //       type: 'post',
+   //       url: '/area_watch.json',
+   //       data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
+   //     })
+   //   }
+   // }
   });
 
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
