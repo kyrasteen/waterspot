@@ -4,6 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    if params[:id] == current_user.id.to_s
+      render :show
+    else
+      redirect_to root_path
+      flash[:error] = "Not authorized"
+    end
   end
 
   def create
