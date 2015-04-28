@@ -8,15 +8,19 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  post "/area_watch", to: "area_watches#create"
-
   resources :users
-  resources :spots, only: [:index]
-  resources :polygons, only: [:index]
 
   namespace :users, as: :user, path: "/:slug" do
     resources :spots
     resources :polygons, only: [:create]
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :polygons, except: [:new, :edit]
+      resources :spots, except: [:new, :edit]
+      post "/area_watch", to: "area_watches#create"
+    end
   end
 
 end
