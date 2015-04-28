@@ -2,19 +2,19 @@ $(document).ready(function() {
   $('#new_spot').on('submit', function(event) {
     $.ajax({
       dataType: 'json',
-      url: '/polygons.json',
+      type: 'get',
+      url: '/api/v1/polygons',
       success: function(data) {
         var polygons = data;
 
         $.ajax({
           dataType: 'json',
-          url: '/:slug/spots/:id.json',
+          url: '/api/v1/spots/:id', //does not matter what id is????
           type: "get",
           success: function(spot) {
             geoSpot = formatGeoJson(spot)
             polygons.forEach(function(polygon) {
-              geoPolygon = polygon["shape"]
-   //           turfInside(geoPolygon, geoSpot);
+              turfInside(polygon, geoSpot);
             });
           },
         });
@@ -27,24 +27,24 @@ $(document).ready(function() {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            spot['lat'],
-            spot['long']
+            parseFloat(spot['long']),
+            parseFloat(spot['lat'])
           ]
         },
       }
       return formatted_spot;
     }
-
-   // function turfInside(polygon, spot) {
-   //   if(turf.inside(spot, polygon)) {
-   //     $.ajax({
-   //       dataType: 'text',
-   //       type: 'post',
-   //       url: '/area_watch.json',
-   //       data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
-   //     })
-   //   }
-   // }
+//include token in header jquery docs authorization header??????
+    function turfInside(polygon, spot) {
+      if(turf.inside(spot, polygon)) {
+        $.ajax({
+          dataType: 'text',
+          type: 'post',
+          url: '/api/v1/area_watch',
+          data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
+        })
+      }
+    }
   });
 
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
@@ -76,7 +76,7 @@ $(document).ready(function() {
     var layer = e.layer;
     var geopolygon = layer.toGeoJSON();
     $.ajax({
-      url : "/:slug/polygons.json",
+      url : "/api/v1/polygons.json",
       type : "post",
       data : { data_value: JSON.stringify(geopolygon) }
     });
@@ -180,7 +180,8 @@ $(document).ready(function() {
     marker = e.layer;
     properties = marker.feature.properties;
     popupContent = "<h3 class='popup'>user: " + properties.name + "</h3>" + "<h3 class='popup'> date: "
-    + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
+    + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>" +
+    "<img>" + properties.avatar + "</img>";
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300
@@ -189,7 +190,7 @@ $(document).ready(function() {
 
   $.ajax({
     dataType: 'text',
-    url: '/spots.json',
+    url: '/api/v1/spots',
     success: function(data) {
       var geojson = $.parseJSON(data);
       return spotLayer.setGeoJSON(geojson);

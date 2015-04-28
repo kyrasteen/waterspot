@@ -16,12 +16,6 @@ class Users::SpotsController < ApplicationController
     end
   end
 
-  def show
-    respond_to do |format|
-      format.json { render json: current_user.spots.last }
-    end
-  end
-
   private
 
   def spot_params
