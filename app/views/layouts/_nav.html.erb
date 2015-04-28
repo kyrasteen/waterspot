@@ -1,10 +1,11 @@
 <ul id="menu">
   <h1><%= link_to "waterspot", root_path %></h1>
+  <% if current_user %>
+    <li><a href="/logout">logout</a></li>
+    <li><a href="/users/:id">dashboard</a></li>
+  <% else %>
   <li><a href="/login">login</a></li>
   <li><a href="/users/new">register</a></li>
-  <li><a href="#">dashboard</a></li>
-  <% if current_user %>
-    <%= link_to "new spot",  new_user_spot_path(current_user), class:"small-new-spot" %>
   <% end %>
 </ul>
 
@@ -16,5 +17,6 @@
 
 <nav class="large-nav">
   <%= render "layouts/heading" %>
+  <h3>crowd sourced stream flow data</h3>
   <%= render "layouts/sign_in" %>
 </nav>

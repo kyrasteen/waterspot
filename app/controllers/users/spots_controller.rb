@@ -1,4 +1,5 @@
 class Users::SpotsController < ApplicationController
+
   def new
     @user = current_user
   end
@@ -11,7 +12,13 @@ class Users::SpotsController < ApplicationController
       redirect_to user_path(current_user)
     else
       flash[:error] = "Check the format of your lat and long"
-      render :new
+      redirect_to :back
+    end
+  end
+
+  def show
+    respond_to do |format|
+      format.json { render json: current_user.spots.last }
     end
   end
 

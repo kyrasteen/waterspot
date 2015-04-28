@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :spots, dependent: :destroy
+  has_many :polygons
 
   mount_uploader :avatar, AvatarUploader
 

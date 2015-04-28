@@ -1,11 +1,17 @@
 @import 'base';
 
 #flash_notice{
-  background-color:$mid-blue;
+  background-color:transparent;
   text-align: center;
 }
 
 #flash_error{
   background-color:red;
   text-align:center;
+}
+
+#flash_notice, #flash_error{
+  position:relative;
+  z-index:100;
+  padding-top:160px;
 }

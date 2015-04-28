@@ -15,14 +15,14 @@
   fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  height:12%;
+  height:15%;
   display:block;
   margin:0 auto;
-  margin-top:-100px;
+  margin-top:162px;
   padding-left:30px;
   text{
     stroke:none;
-    fill:$main-blue;
+    fill:$light-blue;
     font-size:1.3em;
   }
   @include media(1000px) { margin-left:36%; }
@@ -30,29 +30,33 @@
 }
 
 #new-spot{
-  fill:none;
+  position:absolute;
+  fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  position:absolute;
-  left:52%;
-  top:15%;
+  left:54%;
+  top:30%;
   &:hover{
-    fill:$main-blue;
+  transition: fill .7s ease;
+    fill:none;
     text{
-      fill:$light-blue;
+      fill:$main-blue;
     }
   }
   text{
-    fill:$main-blue;
+    fill:$light-blue;
     stroke:none;
   }
-  @include media(870px) { display:none; }
+  @include media(870px)  { display:none; }
+  @include media(1000px) { left:56%; }
+  @include media(950px)  { left:57%; }
 }
 
 .user-specs{
   display:inline;
   margin-left:30px;
   h5, h4{
+    background-color:$mid-blue;
     margin-left:5%;
     position:absolute;
     top:410;
@@ -76,6 +80,8 @@
   text-align:center;
   li{
     text-align:left;
+    background-color:$mid-blue;
+    padding:0 3px;
   }
   @include media(850px) { width:40%; margin-top:-12%; margin-left:53%; }
   @include media(medium) { width:40%; margin-top:-17%; margin-left:53%; }
@@ -105,5 +111,6 @@
   &:first-of-type{
     @include media(medium) { margin-top:196px; }
   }
+  @include media(890px) { margin-top:250px; padding-bottom:3px; }
   @include media(medium) { margin-top:20px; padding-bottom:3px; }
 }

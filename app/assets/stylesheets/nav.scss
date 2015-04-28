@@ -33,7 +33,29 @@
 
 .large-nav{
   height:155px;
+  width:100%;
+  position:absolute;
+  z-index:1000;
+  background-color:rgba(255, 255, 255, 0.72);
+  border-bottom:5px solid $mid-blue;
   @include media(medium) { display:none; }
+  h3{
+    display:inline;
+    position:absolute;
+    margin:0 auto;
+    margin-top:98px;
+    margin-left:10%;
+    background-color:$mid-blue;
+    text-align:center;
+    font-family:$main-font;
+    font-size:1.3em;
+    width:30%;
+    @include media(1175px) { margin-left:8%; width:35% }
+    @include media(1100px) { margin-left:5%; }
+    @include media(1040px) { margin-left:3%; }
+    @include media(970px)  { margin-left:-1%; width:40% }
+    @include media(945px)  { display:none; }
+  }
 }
 
 .profile text{

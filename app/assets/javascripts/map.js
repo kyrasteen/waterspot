@@ -1,10 +1,96 @@
 $(document).ready(function() {
+  $('#new_spot').on('submit', function(event) {
+    $.ajax({
+      dataType: 'json',
+      url: '/polygons.json',
+      success: function(data) {
+        var polygons = data;
+
+        $.ajax({
+          dataType: 'json',
+          url: '/:slug/spots/:id.json',
+          type: "get",
+          success: function(spot) {
+            geoSpot = formatGeoJson(spot)
+            polygons.forEach(function(polygon) {
+              geoPolygon = polygon["shape"]
+   //           turfInside(geoPolygon, geoSpot);
+            });
+          },
+        });
+      }
+    })
+
+    function formatGeoJson(spot) {
+      var formatted_spot = {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            spot['lat'],
+            spot['long']
+          ]
+        },
+      }
+      return formatted_spot;
+    }
+
+   // function turfInside(polygon, spot) {
+   //   if(turf.inside(spot, polygon)) {
+   //     $.ajax({
+   //       dataType: 'text',
+   //       type: 'post',
+   //       url: '/area_watch.json',
+   //       data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
+   //     })
+   //   }
+   // }
+  });
+
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
 
   var map = L.mapbox.map('map', 'kyraweber.lp8mldi9')
   .setView([39.7, -104.50], 7)
-  .addControl(L.mapbox.shareControl());
-  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+  var featureGroup = L.featureGroup().addTo(map);
+
+  var drawControl = new L.Control.Draw({
+    edit: {
+      featureGroup: featureGroup
+    },
+    draw: {
+      polygon: true,
+      polyline: false,
+      rectangle: false,
+      circle: false,
+      marker: false
+    }
+  }).addTo(map);
+
+  map.on('draw:created', showPolygonArea);
+  map.on('draw:edited', showPolygonAreaEdited);
+  map.on('draw:created', savePolygon);
+
+  function savePolygon(e) {
+    var type = e.layerType;
+    var layer = e.layer;
+    var geopolygon = layer.toGeoJSON();
+    $.ajax({
+      url : "/:slug/polygons.json",
+      type : "post",
+      data : { data_value: JSON.stringify(geopolygon) }
+    });
+  }
+
+  function showPolygonAreaEdited(e) {
+    e.layers.eachLayer(function(layer) {
+      showPolygonArea({ layer: layer });
+    });
+  }
+  function showPolygonArea(e) {
+    featureGroup.clearLayers();
+    featureGroup.addLayer(e.layer);
+  }
 
   var spotLayer = L.mapbox.featureLayer().addTo(map);
   var stationLayer = L.mapbox.featureLayer().addTo(map);
@@ -53,7 +139,7 @@ $(document).ready(function() {
   var geojson = []
 
   function parse_station(value) {
-    station = {
+    var station = {
       type: "Feature",
       "geometry": {
         "type": "Point",
@@ -80,7 +166,7 @@ $(document).ready(function() {
     marker = e.layer;
     properties = marker.feature.properties;
     popupContent = "<h3 class='gauge-pop'>gauge name: " + properties.name + "</h3>" +
-                   "<h3 class='gauge-pop'>cfs: " + properties.value + " </h3>"
+      "<h3 class='gauge-pop'>cfs: " + properties.value + " </h3>"
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300
@@ -94,7 +180,7 @@ $(document).ready(function() {
     marker = e.layer;
     properties = marker.feature.properties;
     popupContent = "<h3 class='popup'>user: " + properties.name + "</h3>" + "<h3 class='popup'> date: "
-                 + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
+    + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>";
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300
@@ -105,8 +191,7 @@ $(document).ready(function() {
     dataType: 'text',
     url: '/spots.json',
     success: function(data) {
-      var geojson;
-      geojson = $.parseJSON(data);
+      var geojson = $.parseJSON(data);
       return spotLayer.setGeoJSON(geojson);
     }
   });
