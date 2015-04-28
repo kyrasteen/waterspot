@@ -1,4 +1,53 @@
 $(document).ready(function() {
+  $('#new_spot').on('submit', function(event) {
+    $.ajax({
+      dataType: 'json',
+      url: '/polygons.json',
+      success: function(data) {
+        var polygons = data;
+
+
+        $.ajax({
+          dataType: 'json',
+          url: '/:slug/spots/:id.json',
+          type: "get",
+          success: function(spot) {
+            geoSpot = formatGeoJson(spot)
+            polygons.forEach(function(polygon) {
+              geoPolygon = polygon["shape"]
+              turfInside(geoPolygon, geoSpot);
+            });
+          },
+        });
+      }
+    })
+
+    function formatGeoJson(spot) {
+      var formatted_spot = {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            spot['lat'],
+            spot['long']
+          ]
+        },
+      }
+      return formatted_spot;
+    }
+
+    function turfInside(polygon, spot) {
+      if(turf.inside(spot, polygon)) {
+        $.ajax({
+          dataType: 'text',
+          type: 'post',
+          url: '/area_watch.json',
+          data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
+        })
+      }
+    }
+  });
+
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
 
   var map = L.mapbox.map('map', 'kyraweber.lp8mldi9')
@@ -32,50 +81,6 @@ $(document).ready(function() {
       type : "post",
       data : { data_value: JSON.stringify(geopolygon) }
     });
-  }
-
-  //every time a spot is saved (rubyland)
-  //get all polygons from db
-  //get that saved spot
-  //check through turf to see if spot is in any polygons
-  //where true post polygon and spot to ruby
-  //rubyland sends email to polygon user with spot info
-  //
-
-//get all polygons from db
-  function getPolygons() {
-    $.ajax({
-      dataType: 'text',
-      url: '/polygons.json',
-      success: function(data) {
-        json = $.parseJSON(data);
-        setPolygons(json);
-      }
-    })
-  }
-
-//get spot from db
-  //
-  $.ajax({
-    dataType: 'text',
-    url: '/:slug/spots/:id.json',
-    type: "get",
-    success: function(data) {
-      var spot = $.parseJSON(data);
-    }
-  });
-
-  //check to see if spot is inside polygon
-  //
-  function turfInside(polygon, spot) {
-   if(turf.inside(spot, polygon)) {
-    $.ajax({
-      dataType: 'text',
-      type: 'post',
-      url: '/area_watch.json',
-      data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
-    })
-   }
   }
 
   function showPolygonAreaEdited(e) {

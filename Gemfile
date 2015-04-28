@@ -15,7 +15,6 @@ gem 'omniauth-twitter'
 gem 'figaro'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor'
-gem 'jquery-migrate-rails'
 
 group :development, :test do
   gem 'simplecov', :require => false, :group => :test
