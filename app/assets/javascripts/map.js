@@ -52,6 +52,12 @@ $(document).ready(function() {
   var map = L.mapbox.map('map', 'kyraweber.lp8mldi9')
   .setView([39.7, -104.50], 7)
 
+  var mousemove = document.getElementById('mousemove');
+
+  map.on('mousemove', function(e) {
+      window[e.type].innerHTML = e.containerPoint.toString() + ', ' + e.latlng.toString();
+  });
+
   var featureGroup = L.featureGroup().addTo(map);
 
   var drawControl = new L.Control.Draw({
@@ -181,7 +187,7 @@ $(document).ready(function() {
     properties = marker.feature.properties;
     popupContent = "<h3 class='popup'>user: " + properties.name + "</h3>" + "<h3 class='popup'> date: "
     + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>" +
-    "<img>" + properties.avatar + "</img>";
+      "<img src=assets/" + properties.avatar + "></img>";
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300

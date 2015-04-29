@@ -1,6 +1,14 @@
 <div class="sign-up-login">
 
   <% if current_user %>
+
+      <svg class="register name">
+        <g>
+        <polygon points="107 47,67 64,5 52,7 24,51 6,91 20"></polygon>
+        <text x=25 y=40><%= current_user.username %></text>
+        </g>
+      </svg>
+
     <%= link_to logout_path, method: :delete, class: "login-link" do %>
       <svg class="sign-in">
         <g>
