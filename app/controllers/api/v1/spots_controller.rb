@@ -3,7 +3,8 @@ class Api::V1::SpotsController < ApplicationController
 
   def index
     if current_user
-      geojson = GeoSpots.create(Spot.all)
+      geospots = GeoSpots.new(current_user)
+      geojson = geospots.create(Spot.all)
       respond_with geojson
     else
       redirect_to root_path

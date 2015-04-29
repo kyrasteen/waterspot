@@ -8,7 +8,7 @@ class GeoPoly
           coordinates: JSON.parse(poly.shape)["geometry"]["coordinates"]
         },
         properties: {
-          user_id:   poly.user_id,
+          user_id: poly.user_id,
         }
       }
     end

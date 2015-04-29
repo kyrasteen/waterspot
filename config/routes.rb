@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :users
+  resources :gauges
 
   namespace :users, as: :user, path: "/:slug" do
     resources :spots
-    resources :polygons, only: [:create]
   end
 
   namespace :api do

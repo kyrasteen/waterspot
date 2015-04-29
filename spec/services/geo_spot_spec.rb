@@ -5,8 +5,18 @@ describe "Geo Spots" do
     user = User.create(username:"betty", password:"password", email:"betty@example.com")
     spot = Spot.create(lat:39.000, long:-82.5, user_id:user.id, rating:3)
 
-    geospot = GeoSpots.create([spot])
+    geospot = GeoSpots.new(user)
+    geospot = geospot.create([spot])
 
     expect(geospot.first[:type]).to eq("Feature")
+  end
+
+  it "assigns the correct color" do
+    user = User.create(username:"betty", password:"password", email:"betty@example.com")
+    spot = Spot.create(lat:39.000, long:-82.5, user_id:user.id, rating:3)
+
+    geospot = GeoSpots.new(user)
+    geospot = geospot.create([spot])
+    expect(geospot.first[:properties]['marker-color']).to eq('#00a865')
   end
 end
