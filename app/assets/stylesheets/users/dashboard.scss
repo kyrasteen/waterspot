@@ -83,8 +83,9 @@
     background-color:$mid-blue;
     padding:0 3px;
   }
+  @include media(940px) { margin-top:-11%; }
   @include media(850px) { width:40%; margin-top:-12%; margin-left:53%; }
-  @include media(medium) { width:40%; margin-top:-17%; margin-left:53%; }
+  @include media(medium) { margin-top:-17%; margin-left:53%; }
   @include media(590px) { margin-top:-15%; margin-left:51%; }
   @include media(475px) { width:40%; margin-top:-19%; margin-left:45%; }
   @include media(400px) { margin-top:-24%; }
@@ -103,14 +104,11 @@
 
 .spot-unit{
   margin-top:40px;
-  figure img{
-    &:hover{
-      -webkit-filter: opacity(20%);
-    }
-  }
   &:first-of-type{
-    @include media(medium) { margin-top:196px; }
+    @include media(890px) { margin-top:226px; }
+    @include media(small) { margin-top:300px; }
   }
-  @include media(890px) { margin-top:250px; padding-bottom:3px; }
-  @include media(medium) { margin-top:20px; padding-bottom:3px; }
+  @include media(890px) { padding-bottom:3px; }
+  @include media(medium) { margin-top:20px; }
+  @include media(small) { width:90%; }
 }

@@ -8,6 +8,10 @@
   display:none;
 }
 
+.name{
+  font-size:.8em;
+}
+
 .handheld{
   display:none;
   @include media(medium) { display:block; }

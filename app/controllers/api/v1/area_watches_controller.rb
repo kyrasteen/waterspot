@@ -9,7 +9,7 @@ class Api::V1::AreaWatchesController < ApplicationController
   private
 
   def send_email
-    UserAreaWatch.send_update_email(@user).deliver
+    UserAreaWatch.send_update_email(@user, @spot).deliver
   end
 end
 

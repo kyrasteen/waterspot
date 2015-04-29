@@ -24,30 +24,20 @@
   z-index:0;
 }
 
-.map-legend{
-  font-family:$main-font;
-  color:$main-blue;
-}
-
-.map-legends{
-  width:300px;
-  background-color:rgba(255, 255, 255, 0.66);
-  border-radius:0px;
-}
-
-.legend label,
-.legend span {
-  display:block;
-  float:left;
-  height:15px;
-  width:10%;
-  text-align:center;
-  font-size:9px;
-  color:#808080;
+#output{
+  position:absolute;
+  z-index:2000;
+  bottom:2;
+  right:2;
+  background-color:$mid-blue;
 }
 
 .leaflet-popup-content{
   background-color:$main-blue;
+  img{
+    width:auto;
+    height:100px;
+  }
 }
 
 .popup, .gauge-pop{
