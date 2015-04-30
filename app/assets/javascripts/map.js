@@ -90,7 +90,6 @@ $(document).ready(function() {
   var stationLayer = L.mapbox.featureLayer().addTo(map);
 
   $('#map').on("click", "path.leaflet-clickable", function() {
-    console.log("working")
     $.ajax({
       dataType: 'json',
       url: "/api/v1/gauges/" + $('.marker-title').text(),
