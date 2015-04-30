@@ -6,11 +6,11 @@ class GeoSpots
                     "10" => "#135895"}
 
   def self.create(spots)
-   geospots = spots.map do |spot|
+    spots.map do |spot|
       {
-        type: 'Feature',
+        type: "Feature",
         geometry: {
-          type: 'Point',
+          type: "Point",
           coordinates: [spot.long.to_f, spot.lat.to_f]
         },
         properties: {
@@ -18,13 +18,12 @@ class GeoSpots
           date:   spot.formatted_date,
           avatar: spot.avatar_url,
           rating: spot.rating,
-          :'marker-color' => RATING_COLORS[spot.rating],
-          :'marker-symbol' => '',
-          :'marker-size' => 'small'
+          "marker-color" => RATING_COLORS[spot.rating],
+          "marker-symbol" => "",
+          "marker-size" => "small"
         }
       }
     end
-   geospots
   end
 
 end

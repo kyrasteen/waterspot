@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor'
 gem 'responders', '~> 2.0'
+gem 'faraday'
 
 group :development, :test do
   gem 'simplecov', :require => false, :group => :test

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id] == current_user.id.to_s
+    if is_current_user?(params[:id])
       render :show
     else
       redirect_to root_path
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       flash[:notice] = "Welcome to waterspot."
     else
-      flash[:error] = "duplicate information. *username must match twitter username"
+      flash[:error] = "Invalid information, *username must match twitter username"
       render :new
     end
   end

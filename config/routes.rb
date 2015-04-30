@@ -12,14 +12,14 @@ Rails.application.routes.draw do
 
   namespace :users, as: :user, path: "/:slug" do
     resources :spots
-    resources :polygons, only: [:create]
   end
 
   namespace :api do
     namespace :v1 do
-      resources :polygons, except: [:new, :edit]
-      resources :spots, except: [:new, :edit]
-      post "/area_watch", to: "area_watches#create"
+      resources :polygons, only: [:index, :create]
+      resources :spots, only: [:index, :show]
+      resources :gauges, only: [:show]
+      resources :area_watches, only: [:create]
     end
   end
 
