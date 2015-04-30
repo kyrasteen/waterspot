@@ -40,6 +40,14 @@
   }
 }
 
+.leaflet-popup{
+  display:none;
+}
+
+.leaflet-clickable{
+  stroke-width:0px;
+}
+
 .popup, .gauge-pop{
   color:$light-blue;
   font-family:$main-font;

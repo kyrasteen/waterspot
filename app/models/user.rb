@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def send_area_watch_email(user, spot)
+  def self.send_area_watch_email(user, spot)
     UserAreaWatch.send_update_email(user, spot).deliver
   end
 

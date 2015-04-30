@@ -13,9 +13,8 @@ $(document).ready(function() {
           url: '/api/v1/spots/:id', //does not matter what id is????
           type: "get",
           success: function(spot) {
-            geoSpot = $.parseJSON(spot)
             polygons.forEach(function(polygon) {
-              turfInside(polygon, geoSpot);
+              turfInside(polygon, spot[0]);
             });
           },
         });
@@ -24,6 +23,7 @@ $(document).ready(function() {
 
     //include token in header jquery docs authorization header??????
     function turfInside(polygon, spot) {
+      debugger;
       if(turf.inside(spot, polygon)) {
         $.ajax({
           dataType: 'text',
