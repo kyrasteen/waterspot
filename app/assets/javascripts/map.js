@@ -89,18 +89,17 @@ $(document).ready(function() {
   var spotLayer = L.mapbox.featureLayer().addTo(map);
   var stationLayer = L.mapbox.featureLayer().addTo(map);
 
-  //////////////////////////////////////////////////////
-      $('#map').on("click", "path.leaflet-clickable", function() {
-        $.ajax({
-          dataType: 'json',
-          url: "/api/v1/gauges/" + $('.marker-title').text(),
-          type: "get",
-          success: function(data) {
-            return stationLayer.setGeoJSON(data);
-          }
-        })
-      });
-  //////////////////////////////////
+  $('#map').on("click", "path.leaflet-clickable", function() {
+    console.log("working")
+    $.ajax({
+      dataType: 'json',
+      url: "/api/v1/gauges/" + $('.marker-title').text(),
+      type: "get",
+      success: function(data) {
+        return stationLayer.setGeoJSON(data);
+      }
+    })
+  });
 
   stationLayer.on('layeradd', function(e) {
     var marker, popupContent, properties;
