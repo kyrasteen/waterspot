@@ -1,6 +1,7 @@
 class GeoPoly
+
   def self.create(polygons)
-    geopolygons = polygons.map do |poly|
+    polygons.map do |poly|
       {
         type: 'Feature',
         geometry: {
@@ -12,7 +13,6 @@ class GeoPoly
         }
       }
     end
-    geopolygons
   end
 
 end

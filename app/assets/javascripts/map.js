@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $('#new_spot').on('submit', function(event) {
     $.ajax({
       dataType: 'json',
@@ -141,6 +142,16 @@ $(document).ready(function() {
       }]
     }
   ]
+//////////////////////////////////////////////////////
+        $.ajax({
+          dataType: 'json',
+          url: "/api/v1/gauges",
+          type: "get",
+          success: function(data) {
+            console.log(data["value"]["timeSeries"][0]["sourceInfo"])
+          }
+        });
+        //////////////////////////////////
 
   var geojson = []
 
