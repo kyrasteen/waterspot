@@ -45,7 +45,11 @@
 }
 
 .leaflet-clickable{
-  stroke-width:0px;
+  stroke-width:1px;
+  &:hover{
+  fill:$mid-blue;
+  fill-opacity:.5;
+}
 }
 
 .popup, .gauge-pop{
