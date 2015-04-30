@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id] == current_user.id.to_s
+    if is_current_user?(params[:id])
       render :show
     else
       redirect_to root_path

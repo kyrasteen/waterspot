@@ -1,9 +1,9 @@
 class Api::V1::GaugesController < ApplicationController
   respond_to :json
 
-  def index
-    geo_gauges = GeoGauges.create(Gauge.all)
-    respond_with geo_gauges
+  def show
+    gauges = Gauge.find_all(params[:id])
+    respond_with gauges
   end
 
 end

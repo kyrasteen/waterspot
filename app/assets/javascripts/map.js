@@ -13,7 +13,7 @@ $(document).ready(function() {
           url: '/api/v1/spots/:id', //does not matter what id is????
           type: "get",
           success: function(spot) {
-            geoSpot = formatGeoJson(spot)
+            geoSpot = $.parseJSON(spot)
             polygons.forEach(function(polygon) {
               turfInside(polygon, geoSpot);
             });
@@ -22,20 +22,7 @@ $(document).ready(function() {
       }
     })
 
-    function formatGeoJson(spot) {
-      var formatted_spot = {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            parseFloat(spot['long']),
-            parseFloat(spot['lat'])
-          ]
-        },
-      }
-      return formatted_spot;
-    }
-//include token in header jquery docs authorization header??????
+    //include token in header jquery docs authorization header??????
     function turfInside(polygon, spot) {
       if(turf.inside(spot, polygon)) {
         $.ajax({
@@ -56,7 +43,7 @@ $(document).ready(function() {
   var mousemove = document.getElementById('mousemove');
 
   map.on('mousemove', function(e) {
-      window[e.type].innerHTML = e.containerPoint.toString() + ', ' + e.latlng.toString();
+    window[e.type].innerHTML = e.containerPoint.toString() + ', ' + e.latlng.toString();
   });
 
   var featureGroup = L.featureGroup().addTo(map);
@@ -102,81 +89,18 @@ $(document).ready(function() {
   var spotLayer = L.mapbox.featureLayer().addTo(map);
   var stationLayer = L.mapbox.featureLayer().addTo(map);
 
-  var stationjson = [
-    {
-      sourceInfo: {
-        siteName: "POTOMAC RIVER NEAR WASH, DC LITTLE FALLS PUMP STA",
-        geoLocation: {
-          geogLocation: {
-            srs: "EPSG:4326",
-            latitude: 38.94977778,
-            longitude: -77.12763889
-          }
-        }
-      },
-      values: [{
-        value: [{
-          value: "25200",
-          dateTimeAccuracyCd: null,
-          qualifiers: ["P"]
-        }]
-      }]
-    },
-    {
-      sourceInfo: {
-        siteName: "HELL CREEK ABV NF NORTH PLATTE RIVER NR WALDEN, CO",
-        geoLocation: {
-          geogLocation: {
-            srs: "EPSG:4326",
-            latitude: 40.7327222,
-            longitude: -106.4250444
-          }
-        }
-      },
-      values: [{
-        value: [{
-          value: "8.4",
-          dateTimeAccuracyCd: null,
-          qualifiers: ["P"]
-        }]
-      }]
-    }
-  ]
-//////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////
+      $('#map').on("click", "path.leaflet-clickable", function() {
         $.ajax({
           dataType: 'json',
-          url: "/api/v1/gauges",
+          url: "/api/v1/gauges/" + $('.marker-title').text(),
           type: "get",
           success: function(data) {
-            console.log(data["value"]["timeSeries"][0]["sourceInfo"])
+            return stationLayer.setGeoJSON(data);
           }
-        });
-        //////////////////////////////////
-
-  var geojson = []
-
-  function parse_station(value) {
-    var station = {
-      type: "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          value.sourceInfo.geoLocation.geogLocation.longitude,
-          value.sourceInfo.geoLocation.geogLocation.latitude
-        ]
-      },
-      "properties": {
-        "name": value.sourceInfo.siteName,
-        "value": value.values[0].value[0].value,
-        "marker-color": "#ffffff",
-        "marker-symbol": "warehouse",
-        "marker-size": "medium"
-      }
-    }
-    geojson.push(station);
-  };
-
-  stationjson.forEach(parse_station);
+        })
+      });
+  //////////////////////////////////
 
   stationLayer.on('layeradd', function(e) {
     var marker, popupContent, properties;
@@ -189,8 +113,6 @@ $(document).ready(function() {
       minWidth: 300
     });
   });
-
-  stationLayer.setGeoJSON(geojson);
 
   spotLayer.on('layeradd', function(e) {
     var marker, popupContent, properties;
