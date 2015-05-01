@@ -9,6 +9,7 @@ class Api::V1::PolygonsController < ApplicationController
   def create
     polygon_object = params[:data_value]
     current_user.polygons.create(shape: polygon_object)
+    flash[:notice] = "Area saved"
     head :ok
   end
 

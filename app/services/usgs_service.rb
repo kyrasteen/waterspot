@@ -5,7 +5,6 @@ class UsgsService
    @connection = Faraday.new(url: "http://waterservices.usgs.gov/nwis/dv/")
  end
 
- #try with colorado first
  def gauges(state)
    parse(connection.get("?format=json&parameterCd=00060&siteType=ST&siteStatus=active&stateCd=#{state}"))
  end

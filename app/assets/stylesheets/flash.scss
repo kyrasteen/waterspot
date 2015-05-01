@@ -11,7 +11,8 @@
 }
 
 #flash_notice, #flash_error{
-  position:relative;
+  position:absolute;
+  top:130;
+  left:45%;
   z-index:100;
-  padding-top:160px;
 }

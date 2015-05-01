@@ -16,7 +16,7 @@ class GeoSpots
         properties: {
           name:   spot.user.username,
           date:   spot.formatted_date,
-          avatar: spot.avatar_url,
+          avatar: "/public/uploads/spot/#{spot.avatar_url}",
           rating: spot.rating,
           "marker-color" => RATING_COLORS[spot.rating],
           "marker-symbol" => "",

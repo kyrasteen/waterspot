@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :spots, dependent: :destroy
-  has_many :polygons
+  has_many :polygons, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
@@ -21,14 +21,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.send_area_watch_email(user, spot)
-    UserAreaWatch.send_update_email(user, spot).deliver
-  end
+  #private
 
-  private
-
-  def invalid_coordinates(attributes)
-    attributes['lat'] =~ /\A(\-?\d+(\.\d+)?)\z/
-    attributes['long'] =~ /\A(\-?\d+(\.\d+)?)\z/
-  end
+  #def invalid_coordinates(attributes)
+  #  attributes['lat'] =~ /\A(\-?\d+(\.\d+)?)\z/
+  #  attributes['long'] =~ /\A(\-?\d+(\.\d+)?)\z/
+  #end
 end

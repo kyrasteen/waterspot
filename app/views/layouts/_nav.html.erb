@@ -18,5 +18,9 @@
 <nav class="large-nav">
   <%= render "layouts/heading" %>
   <h3>crowd sourced stream flow data</h3>
-  <%= render "layouts/sign_in" %>
+
+<div class="sign-up-login">
+  <%= render current_user.nav %>
+</div>
+
 </nav>
