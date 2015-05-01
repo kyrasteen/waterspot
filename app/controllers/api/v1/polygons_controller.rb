@@ -2,8 +2,7 @@ class Api::V1::PolygonsController < ApplicationController
   respond_to :json
 
   def index
-    polygons = Polygon.all #shape and user
-    geo_polygons = GeoPoly.create(polygons)
+    geo_polygons = GeoPoly.create(Polygon.all)
     respond_with geo_polygons
   end
 

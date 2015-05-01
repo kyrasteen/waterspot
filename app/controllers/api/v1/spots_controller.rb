@@ -3,6 +3,7 @@ class Api::V1::SpotsController < ApplicationController
 
   def index
     if current_user
+      #cache here
       geojson = GeoSpots.create(Spot.all)
       respond_with geojson
     else

@@ -23,12 +23,11 @@ $(document).ready(function() {
 
     //include token in header jquery docs authorization header??????
     function turfInside(polygon, spot) {
-      debugger;
       if(turf.inside(spot, polygon)) {
         $.ajax({
           dataType: 'text',
           type: 'post',
-          url: '/api/v1/area_watch',
+          url: '/api/v1/area_watches',
           data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
         })
       }
@@ -37,8 +36,18 @@ $(document).ready(function() {
 
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
 
-  var map = L.mapbox.map('map', 'kyraweber.lp8mldi9')
+  var southWest = L.latLng(26.412, -125.927),
+    northEast = L.latLng(47.774, -68.125),
+    bounds = L.latLngBounds(southWest, northEast);
+
+  var map = L.mapbox.map('map', 'kyraweber.lp8mldi9', {
+    maxBounds: bounds,
+    maxZoom: 19,
+    minZoom: 2
+  })
   .setView([39.7, -104.50], 7)
+
+  map.fitBounds(bounds);
 
   var mousemove = document.getElementById('mousemove');
 
@@ -90,6 +99,8 @@ $(document).ready(function() {
   var stationLayer = L.mapbox.featureLayer().addTo(map);
 
   $('#map').on("click", "path.leaflet-clickable", function() {
+    console.log("registered click event")
+    console.log($('.marker-title').text());
     $.ajax({
       dataType: 'json',
       url: "/api/v1/gauges/" + $('.marker-title').text(),
