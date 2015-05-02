@@ -1,20 +1,20 @@
 <div id='map' class="hide"></div>
+<div id="static-map">
+  <aside class="user-specs">
+    <%= image_tag current_user.avatar, class: "profile-pic" %>
+    <h4><%= current_user.username %></h4>
+    <h5><%= current_user.email %></h5>
+    <%= link_to "new spot",  new_user_spot_path(current_user), class:"sign-in small-new-spot" %>
+  </aside>
 
-<aside class="user-specs">
-  <%= image_tag current_user.avatar, class: "profile-pic" %>
-  <h4><%= current_user.username %></h4>
-  <h5><%= current_user.email %></h5>
-  <%= link_to "new spot",  new_user_spot_path(current_user), class:"sign-in small-new-spot" %>
-</aside>
+  <svg id="spots">
+    <g>
+      <polygon points="151 68,179 38,175 5,56 7,6 33,13 57"></polygon>
+      <text x=60 y=40>spots</text>
+    </g>
+  </svg>
 
-<svg id="spots">
-  <g>
-    <polygon points="151 68,179 38,175 5,56 7,6 33,13 57"></polygon>
-    <text x=60 y=40>spots</text>
-  </g>
-</svg>
+  <%= render partial: "users/new_spot" %>
 
-<%= render partial: "users/new_spot" %>
-
-<%= render partial: "users/user_spots" %>
-
+  <%= render partial: "users/user_spots" %>
+</div>
