@@ -1,30 +1,32 @@
 <div id='map' class="hide"></div>
-<svg class="border">
-  <g>
-  <polygon points="305 377,70 361,1 210,36 12,326 4,414 161"></polygon>
-  <text x=40 y=70>
-    <div class="login-form">
-      <%= form_for :session do |f| %>
-        <section class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, required: true %>
-        </section>
-        <section class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, id: "pass" %>
-        </section>
-        <section class="form-group">
-          <%= f.label :confirm_password %>
-          <%= f.password_field :password, id: "confirm"  %>
-        </section>
-        <section class="form-group">
-          <%= f.submit "login" %>
-        </section>
-      <% end %>
-    </div>
-  </text>
-  </g>
-</svg>
+<div id="static-map">
+  <svg class="border">
+    <g>
+    <polygon points="305 377,70 361,1 210,36 12,326 4,414 161"></polygon>
+    <text x=40 y=70>
+      <div class="login-form">
+        <%= form_for :session do |f| %>
+          <section class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, required: true %>
+          </section>
+          <section class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, id: "pass" %>
+          </section>
+          <section class="form-group">
+            <%= f.label :confirm_password %>
+            <%= f.password_field :password, id: "confirm"  %>
+          </section>
+          <section class="form-group">
+            <%= f.submit "login" %>
+          </section>
+        <% end %>
+      </div>
+    </text>
+    </g>
+  </svg>
+</div>
 
 <p id="or">or</p>
 

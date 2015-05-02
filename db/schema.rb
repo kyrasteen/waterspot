@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428132405) do
+ActiveRecord::Schema.define(version: 20150502174015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "gauges", force: :cascade do |t|
+    t.string   "name"
+    t.hstore   "geometry"
+    t.hstore   "properties"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "type_of"
+    t.string   "state"
+  end
 
   create_table "polygons", force: :cascade do |t|
     t.text     "shape"

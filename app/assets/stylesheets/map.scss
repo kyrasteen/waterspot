@@ -40,14 +40,12 @@
   }
 }
 
-.leaflet-popup{
-}
-
 .leaflet-clickable{
   stroke-width:1px;
   &:hover{
   stroke:$mid-blue;
   stroke-width:2px;
+  fill:transparent;
 }
 }
 

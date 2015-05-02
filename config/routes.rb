@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :polygons, only: [:index, :create]
       resources :spots, only: [:index, :show]
-      resources :gauges, only: [:show]
+      resources :gauges, only: [:show, :create]
       resources :area_watches, only: [:create]
     end
   end

@@ -49,10 +49,6 @@ $(document).ready(function() {
 
   map.fitBounds(bounds);
 
-   map.featureLayer.on('click', function(e) {
-           map.panTo(e.layer.getLatLng());
-       });
-
   var mousemove = document.getElementById('mousemove');
 
   map.on('mousemove', function(e) {
@@ -78,6 +74,9 @@ $(document).ready(function() {
   map.on('draw:edited', showPolygonAreaEdited);
   map.on('draw:created', savePolygon);
 
+  var spotLayer = L.mapbox.featureLayer().addTo(map);
+  var stationLayer = L.mapbox.featureLayer().addTo(map);
+
   function savePolygon(e) {
     var type = e.layerType;
     var layer = e.layer;
@@ -98,21 +97,6 @@ $(document).ready(function() {
     featureGroup.clearLayers();
     featureGroup.addLayer(e.layer);
   }
-
-  var spotLayer = L.mapbox.featureLayer().addTo(map);
-  var stationLayer = L.mapbox.featureLayer().addTo(map);
-
-  $('#map').on("click", "path.leaflet-clickable", function() {
-    console.log("registered click event")
-    $.ajax({
-      dataType: 'json',
-      url: "/api/v1/gauges/" + $('.marker-title').text(),
-      type: "get",
-      success: function(data) {
-        return stationLayer.setGeoJSON(data);
-      }
-    })
-  });
 
   stationLayer.on('layeradd', function(e) {
     var marker, popupContent, properties;
@@ -138,6 +122,19 @@ $(document).ready(function() {
       minWidth: 300
     });
   });
+
+setTimeout(function() {
+  $(".leaflet-clickable").on("click", $(this), function() {
+    $.ajax({
+      dataType: 'json',
+      url: "/api/v1/gauges/" + $('.leaflet-popup-content').text(),
+      type: "get",
+      success: function(data) {
+        return stationLayer.setGeoJSON(data);
+      }
+    })
+  })
+}, 3000);
 
   $.ajax({
     dataType: 'text',
