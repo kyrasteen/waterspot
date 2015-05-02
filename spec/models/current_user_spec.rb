@@ -1,7 +1,7 @@
 require 'rails_helper' do
 
   describe "CurrentUser", type: :model do
-    xit "has valid attributes" do
+    it "has valid attributes" do
       user = User.new(username: "betty", password: "password", email: "boo@example.com")
       current_user = CurrentUser.new(user)
       expect(current_user.username).to eq("betty")
