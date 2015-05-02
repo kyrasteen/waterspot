@@ -36,8 +36,8 @@ $(document).ready(function() {
 
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
 
-  var southWest = L.latLng(26.412, -125.927),
-    northEast = L.latLng(47.774, -68.125),
+  var southWest = L.latLng(26.412, -115.927),
+    northEast = L.latLng(53.774, -78.125),
     bounds = L.latLngBounds(southWest, northEast);
 
   var map = L.mapbox.map('map', 'kyraweber.lp8mldi9', {
@@ -48,6 +48,10 @@ $(document).ready(function() {
   .setView([39.7, -104.50], 7)
 
   map.fitBounds(bounds);
+
+   map.featureLayer.on('click', function(e) {
+           map.panTo(e.layer.getLatLng());
+       });
 
   var mousemove = document.getElementById('mousemove');
 
@@ -100,7 +104,6 @@ $(document).ready(function() {
 
   $('#map').on("click", "path.leaflet-clickable", function() {
     console.log("registered click event")
-    console.log($('.marker-title').text());
     $.ajax({
       dataType: 'json',
       url: "/api/v1/gauges/" + $('.marker-title').text(),

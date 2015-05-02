@@ -6,7 +6,7 @@ class CurrentUser
   end
 
   def nav
-   user.nil? || "layouts/user_nav_bar"
+    user.nil? || "layouts/user_nav_bar"
   end
 
   def username

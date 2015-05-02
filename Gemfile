@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'normalize-rails'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'fog'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'bcrypt', '~> 3.1.7'

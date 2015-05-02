@@ -2,17 +2,16 @@
 
 #flash_notice{
   background-color:transparent;
-  text-align: center;
 }
 
 #flash_error{
   background-color:red;
-  text-align:center;
 }
 
 #flash_notice, #flash_error{
   position:absolute;
   top:130;
-  left:45%;
-  z-index:100;
+  left:42%;
+  z-index:2000;
+  text-align: center;
 }

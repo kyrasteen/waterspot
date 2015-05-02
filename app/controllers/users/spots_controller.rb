@@ -8,7 +8,7 @@ class Users::SpotsController < ApplicationController
     spot = current_user.spots.new(spot_params)
     if spot.save
       flash[:notice] = "Spot saved"
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user.user)
     else
       flash[:error] = "Check the format of your lat and long"
       redirect_to :back
