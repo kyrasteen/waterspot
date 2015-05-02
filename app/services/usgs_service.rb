@@ -12,7 +12,7 @@ class UsgsService
  private
 
  def parse(response)
-   JSON.parse(response.body)["value"]["timeSeries"]
+   JSON.parse(response.body)["value"]
  end
 
 end

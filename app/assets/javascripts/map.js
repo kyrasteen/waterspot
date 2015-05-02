@@ -127,14 +127,13 @@ setTimeout(function() {
   $(".leaflet-clickable").on("click", $(this), function() {
     $.ajax({
       dataType: 'json',
-      url: "/api/v1/gauges/" + $('.marker-title').text(),
+      url: "/api/v1/gauges/" + $('.leaflet-popup-content').text(),
       type: "get",
       success: function(data) {
         return stationLayer.setGeoJSON(data);
       }
     })
   })
-
 }, 3000);
 
   $.ajax({
