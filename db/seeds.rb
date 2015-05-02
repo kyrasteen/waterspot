@@ -19,3 +19,29 @@ User.all.each do |user|
   user.spots.create(lat: coordinate.first, long: coordinate.last, rating:rand(1..10).to_s)
 end
 
+service = UsgsService.new
+STATES.each do |s|
+  state = service.gauges(se)["queryInfo"]["note"].first["value"]
+  service.gauges(s)["timeSeries"].each do |gauge|
+    Gauge.create(
+      lat: [ gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'], gauge['sourceInfo']['geoLocation']['geogLocation']['latitude']].last,
+      long: [ gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'], gauge['sourceInfo']['geoLocation']['geogLocation']['latitude']].first,
+      name: gauge['sourceInfo']["siteName"],
+      value: gauge['values'][0]['value'][0]['value'],
+      state: state.match(/\w+/)
+    )
+  end
+end
+
+STATES = [
+  "al","ak","az","ar","ca","co",
+  "ct","de","dc","fl","ga","hi",
+  "id","il","in","ia","ks","ky",
+  "la","me","md","ma","mi","mn",
+  "ms","mo","mt","ne","nv","nh",
+  "nj","nm","ny","nc","nd","oh",
+  "ok","or","pa","ri","sc","sd",
+  "tn","tx","ut","vt","va","wa",
+  "wv","wi","wy"
+]
+
