@@ -19,8 +19,15 @@
   <%= render "layouts/heading" %>
   <h3>crowd sourced stream flow data</h3>
 
+<% if current_user %>
 <div class="sign-up-login">
-  <%= render current_user.nav %>
+  <%= render partial: "layouts/user_nav_bar" %>
 </div>
+<% else %>
+<div class="sign-up-login">
+  <%= render partial: "layouts/guest_nav" %>
+</div>
+<% end %>
+
 
 </nav>
