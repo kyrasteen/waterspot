@@ -6,6 +6,10 @@
   <body>
     <h1>Hello, <%= @user.username %>!</h1>
     <p>
+      <%= @spot.user.username %> placed a spot in your watched area.
+      coordinates: [<%= @spot.lat %>, <%= @spot.long %>]
+      cfs: <%= @spot.rating %>
+      <%= image_tag @spot.avatar %>
       <%= link_to "Sign in", 'https://waterspot.herokuapp.com/login' %>
       to see the updated spot in your watched area
     </p>
