@@ -125,16 +125,18 @@ $(document).ready(function() {
 
 setTimeout(function() {
   $(".leaflet-clickable").on("click", $(this), function() {
-    $.ajax({
-      dataType: 'json',
-      url: "/api/v1/gauges/" + $('.leaflet-popup-content').text(),
-      type: "get",
-      success: function(data) {
-        return stationLayer.setGeoJSON(data);
-      }
-    })
+    setTimeout(function(){
+      $.ajax({
+        dataType: 'json',
+        url: "/api/v1/gauges/" + $('.leaflet-popup-content').text(),
+        type: "get",
+        success: function(data) {
+          return stationLayer.setGeoJSON(data);
+        }
+      })
+    }, 100)
   })
-}, 3000);
+}, 500);
 
   $.ajax({
     dataType: 'text',

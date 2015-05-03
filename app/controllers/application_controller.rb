@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :is_current_user?
 
   def current_user
-    user = User.find_by(id: session[:user_id])
-    @current_user ||= CurrentUser.new(user)
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def is_current_user?(id)
