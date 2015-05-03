@@ -19,6 +19,7 @@ describe "User Register", :type => :feature do
     fill_in(:user_password, with: "password")
     click_link_or_button("sign up")
     expect(page).to have_content("Welcome to waterspot")
+    expect(ActionMailer::Base.deliveries.length).to eq(1)
   end
 
 end
