@@ -81,6 +81,7 @@ $(document).ready(function() {
     var type = e.layerType;
     var layer = e.layer;
     var geopolygon = layer.toGeoJSON();
+    $("nav").append("<p id='area_notice'>Area saved</p>")
     $.ajax({
       url : "/api/v1/polygons.json",
       type : "post",

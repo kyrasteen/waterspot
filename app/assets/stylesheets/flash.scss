@@ -8,10 +8,15 @@
   background-color:red;
 }
 
-#flash_notice, #flash_error{
+#area_notice{
+  top:120 !important;
+}
+
+#flash_notice, #flash_error, #area_notice{
   position:absolute;
   top:130;
-  left:42%;
+  left:44%;
   z-index:2000;
   text-align: center;
 }
+

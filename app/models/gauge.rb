@@ -1,9 +1,5 @@
 class Gauge < ActiveRecord::Base
 
-  def self.geo_format(gauges)
-    GeoGauges.create(gauges)
-  end
-
   def self.service
     @service ||= UsgsService.new
   end
@@ -11,13 +7,30 @@ class Gauge < ActiveRecord::Base
   def self.update_values
     STATES.each do |state|
       service.gauges(state)["timeSeries"].each do |gauge|
-        found_gauge = find_by( name: gauge['sourceInfo']["siteName"])
-        found_gauge.update_attributes(value: gauge['values'][0]['value'][0]['value'])
+        update_gauge(gauge)
       end
     end
   end
 
- STATES = [
+  def self.update_gauge(gauge)
+    found_gauge = find_by( name: gauge['sourceInfo']["siteName"])
+    found_gauge.update_attributes(value: gauge['values'][0]['value'][0]['value'])
+  end
+
+  def self.create_from_api(params)
+    state = service.gauges(params)["queryInfo"]["note"].first["value"]
+    service.gauges(params)["timeSeries"].each do |gauge|
+      Gauge.create(
+        lat: gauge['sourceInfo']['geoLocation']['geogLocation']['latitude'],
+        long: gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'],
+        name: gauge['sourceInfo']["siteName"],
+        value: gauge['values'][0]['value'][0]['value'],
+        state: state.match(/\w+/)
+      )
+    end
+  end
+
+  STATES = [
     "al","ak","az","ar","ca","co",
     "ct","de","dc","fl","ga","hi",
     "id","il","in","ia","ks","ky",

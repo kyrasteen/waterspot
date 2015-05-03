@@ -31,18 +31,20 @@ states = [
   "wv","wi","wy"
 ]
 
-service = UsgsService.new
-states.each do |s|
-  state = service.gauges(s)["queryInfo"]["note"].first["value"]
-  service.gauges(s)["timeSeries"].each do |gauge|
-    Gauge.create(
-      lat: [ gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'], gauge['sourceInfo']['geoLocation']['geogLocation']['latitude']].last,
-      long: [ gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'], gauge['sourceInfo']['geoLocation']['geogLocation']['latitude']].first,
-      name: gauge['sourceInfo']["siteName"],
-      value: gauge['values'][0]['value'][0]['value'],
-      state: state.match(/\w+/)
-    )
-  end
+states.each do |state|
+  Gauge.create_from_api(state)
 end
-
+#
+#
+#   state = service.gauges(s)["queryInfo"]["note"].first["value"]
+#   service.gauges(s)["timeSeries"].each do |gauge|
+#     Gauge.create(
+#       lat: [ gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'], gauge['sourceInfo']['geoLocation']['geogLocation']['latitude']].last,
+#       long: [ gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'], gauge['sourceInfo']['geoLocation']['geogLocation']['latitude']].first,
+#       name: gauge['sourceInfo']["siteName"],
+#       value: gauge['values'][0]['value'][0]['value'],
+#       state: state.match(/\w+/)
+#     )
+#   end
+# end
 
