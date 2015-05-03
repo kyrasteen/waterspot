@@ -4,12 +4,12 @@ class GeoGauges
       {
         type: "Feature",
         geometry: {
-          type: gauge.geometry["type"],
-          coordinates: JSON.parse(gauge.geometry["coordinates"])
+          type: "Point",
+          coordinates: [gauge.long, gauge.lat]
         },
         properties: {
-          name: gauge.properties["name"],
-          value: gauge.properties["value"],
+          name: gauge.name,
+          value: gauge.value,
           "marker-color"=>  "#ffffff",
           "marker-symbol"=> "warehouse",
           "marker-size"=>   "small"
