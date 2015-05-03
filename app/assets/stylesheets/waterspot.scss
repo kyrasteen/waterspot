@@ -20,11 +20,9 @@ body{
       fill:$main-blue;
     }
   }
-
   li{
     list-style:none;
   }
-
 }
 
 #popup{
@@ -33,12 +31,11 @@ body{
   height:380px;
   background:rgba(255, 255, 255, 0.92);
   border:5px solid $mid-blue;
-  left:65%;
-  top:40%;
+  left:33%;
+  top:30%;
   padding:10px;
-  margin-left:-320px;
-  margin-top:-150px;
   text-align:left;
+  z-index:3000;
   ol{
     margin-top:0px;
     font-family:$main-font;

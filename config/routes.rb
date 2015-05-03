@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  resources :users
-
-  namespace :users, as: :user, path: "/:slug" do
+  resources :users  do
     resources :spots
   end
 

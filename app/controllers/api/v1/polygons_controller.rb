@@ -7,10 +7,14 @@ class Api::V1::PolygonsController < ApplicationController
   end
 
   def create
-    polygon_object = params[:data_value]
-    current_user.polygons.create(shape: polygon_object)
-    flash[:notice] = "Area saved"
-    head :ok
+    if current_user.user.is_a?(Guest)
+      flash[:error] = "Must be logged in to save an area"
+      head :ok
+    else
+      polygon_object = params[:data_value]
+      current_user.polygons.create(shape: polygon_object)
+      head :ok
+    end
   end
 
 end

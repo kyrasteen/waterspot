@@ -116,7 +116,7 @@ $(document).ready(function() {
     properties = marker.feature.properties;
     popupContent = "<h3 class='popup'>user: " + properties.name + "</h3>" + "<h3 class='popup'> date: "
     + properties.date + "</h3>" + "<h3 class='popup'>rating: " + properties.rating + "</h3>" +
-      "<img src=assets/" + properties.avatar + "></img>";
+      "<img src=" + properties.avatar + "></img>";
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300

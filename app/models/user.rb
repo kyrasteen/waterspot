@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  validates :slug, uniqueness: true
 
   has_secure_password
   has_many :spots, dependent: :destroy
@@ -21,10 +22,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  #private
-
-  #def invalid_coordinates(attributes)
-  #  attributes['lat'] =~ /\A(\-?\d+(\.\d+)?)\z/
-  #  attributes['long'] =~ /\A(\-?\d+(\.\d+)?)\z/
-  #end
 end
