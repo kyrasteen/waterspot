@@ -19,9 +19,21 @@ User.all.each do |user|
   user.spots.create(lat: coordinate.first, long: coordinate.last, rating:rand(1..10).to_s)
 end
 
+states = [
+  "al","ak","az","ar","ca","co",
+  "ct","de","dc","fl","ga","hi",
+  "id","il","in","ia","ks","ky",
+  "la","me","md","ma","mi","mn",
+  "ms","mo","mt","ne","nv","nh",
+  "nj","nm","ny","nc","nd","oh",
+  "ok","or","pa","ri","sc","sd",
+  "tn","tx","ut","vt","va","wa",
+  "wv","wi","wy"
+]
+
 service = UsgsService.new
-STATES.each do |s|
-  state = service.gauges(se)["queryInfo"]["note"].first["value"]
+states.each do |s|
+  state = service.gauges(s)["queryInfo"]["note"].first["value"]
   service.gauges(s)["timeSeries"].each do |gauge|
     Gauge.create(
       lat: [ gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'], gauge['sourceInfo']['geoLocation']['geogLocation']['latitude']].last,
@@ -33,15 +45,4 @@ STATES.each do |s|
   end
 end
 
-STATES = [
-  "al","ak","az","ar","ca","co",
-  "ct","de","dc","fl","ga","hi",
-  "id","il","in","ia","ks","ky",
-  "la","me","md","ma","mi","mn",
-  "ms","mo","mt","ne","nv","nh",
-  "nj","nm","ny","nc","nd","oh",
-  "ok","or","pa","ri","sc","sd",
-  "tn","tx","ut","vt","va","wa",
-  "wv","wi","wy"
-]
 
