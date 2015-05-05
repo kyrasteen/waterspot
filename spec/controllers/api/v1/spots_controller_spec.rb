@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe Api::V1::SpotsController, type: :controller do
   describe "GET #index" do
     xit "responds successfully with 200 ok status" do
-      get :index
-      expect(response).to be_success
+      get :index, format: :json
+      spots = JSON.parse(response.body)
+      spot  = spots.first
+      expect(response.status).to eq(200)
     end
   end
 

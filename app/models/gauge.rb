@@ -37,8 +37,6 @@ class Gauge < ActiveRecord::Base
     "wv","wi","wy"
   ]
 
-  private
-
   def self.gauges(state)
     service.gauges(state)["timeSeries"]
   end

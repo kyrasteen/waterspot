@@ -1,37 +1,31 @@
 $(document).ready(function() {
 
   $('#new_spot').on('submit', function(event) {
-    $.ajax({
-      dataType: 'json',
-      type: 'get',
-      url: '/api/v1/polygons',
-      success: function(data) {
-        var polygons = data;
+    $.getJSON('/api/v1/polygons').
+      then(function(data) {
+      var polygons = data;
 
-        $.ajax({
-          dataType: 'json',
-          url: '/api/v1/spots/:id', //does not matter what id is????
-          type: "get",
-          success: function(spot) {
-            polygons.forEach(function(polygon) {
-              turfInside(polygon, spot[0]);
-            });
-          },
+      $.getJSON('/api/v1/spots/:id'). //does not matter what id is????
+        then(function(spot) {
+        polygons.forEach(function(polygon) {
+          turfInside(polygon, spot[0]);
         });
-      }
+      })
     })
+  });
 
-    //include token in header jquery docs authorization header??????
-    function turfInside(polygon, spot) {
-      if(turf.inside(spot, polygon)) {
-        $.ajax({
-          dataType: 'text',
-          type: 'post',
-          url: '/api/v1/area_watches',
-          data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
-        })
-      }
-    }
+
+//include token in header jquery docs authorization header??????
+function turfInside(polygon, spot) {
+  if(turf.inside(spot, polygon)) {
+    $.ajax({
+      dataType: 'text',
+      type: 'post',
+      url: '/api/v1/area_watches',
+      data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
+    })
+  }
+}
   });
 
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
@@ -124,20 +118,20 @@ $(document).ready(function() {
     });
   });
 
-setTimeout(function() {
-  $(".leaflet-clickable").on("click", $(this), function() {
-    setTimeout(function(){
-      $.ajax({
-        dataType: 'json',
-        url: "/api/v1/gauges/" + $('.leaflet-popup-content').text(),
-        type: "get",
-        success: function(data) {
-          return stationLayer.setGeoJSON(data);
-        }
-      })
-    }, 100)
-  })
-}, 500);
+  setTimeout(function() {
+    $(".leaflet-clickable").on("click", $(this), function() {
+      setTimeout(function(){
+        $.ajax({
+          dataType: 'json',
+          url: "/api/v1/gauges/" + $('.leaflet-popup-content').text(),
+          type: "get",
+          success: function(data) {
+            return stationLayer.setGeoJSON(data);
+          }
+        })
+      }, 100)
+    })
+  }, 500);
 
   $.ajax({
     dataType: 'text',
