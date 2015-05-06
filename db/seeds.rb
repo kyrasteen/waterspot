@@ -12,11 +12,15 @@ def longitudes
   [-85.8500, -176.6500, -122.173, -104.800, -71.2833, -92.220, -73.877, -122.1899]
 end
 
+def names
+  ["Boulder Creek", "Moss River", "Chautauqua Creek", "Rio Grande", "Mississippi River"]
+end
+
 coordinates = latitudes.zip(longitudes)
 
 User.all.each do |user|
   coordinate = coordinates.sample
-  user.spots.create(lat: coordinate.first, long: coordinate.last, rating:rand(1..10).to_s)
+  user.spots.create(lat: coordinate.first, long: coordinate.last, rating:rand(1..10).to_s, name: names.sample )
 end
 
 states = [

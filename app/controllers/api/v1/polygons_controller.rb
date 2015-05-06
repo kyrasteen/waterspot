@@ -3,7 +3,8 @@ class Api::V1::PolygonsController < ApplicationController
 
   def index
     geo_polygons = GeoPoly.create(Polygon.all)
-    respond_with geo_polygons
+    spot = GeoSpots.create([current_user.spots.last])
+    respond_with data: {polygons: geo_polygons, spot: spot}
   end
 
   def create

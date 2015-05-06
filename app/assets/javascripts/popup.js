@@ -7,13 +7,12 @@ $(document).ready( function() {
     $("#popup").addClass("hide");
   });
 
-  // if(!localStorage["alertdisplayed"]) {
-      // $("#home-popup").addClass("show");
+   if(!localStorage["alertdisplayed"]) {
+      $("#home-popup").addClass("show");
 
+     localStorage["alertdisplayed"] = true
+  }
     $("#close-btn").click(function(){
       $("#home-popup").addClass("hide");
     });
-
-    // localStorage["alertdisplayed"] = true
-//  }
 });

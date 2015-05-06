@@ -3,28 +3,25 @@ $(document).ready(function() {
   $('#new_spot').on('submit', function(event) {
     $.getJSON('/api/v1/polygons').
       then(function(data) {
-      var polygons = data;
-
-      $.getJSON('/api/v1/spots/:id'). //does not matter what id is????
-        then(function(spot) {
-        polygons.forEach(function(polygon) {
-          turfInside(polygon, spot[0]);
-        });
-      })
+      var polygons = data['data']['polygons'];
+      var spot = data['data']['spot']
+      polygons.forEach(function(polygon) {
+        turfInside(polygon, spot[0]);
+      });
     })
   })
 
   //$.post('/api/v1/area_watches')
-function turfInside(polygon, spot) {
-  if(turf.inside(spot, polygon)) {
-    $.ajax({
-      dataType: 'text',
-      type: 'post',
-      url: '/api/v1/area_watches',
-      data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
-    })
+  function turfInside(polygon, spot) {
+    if(turf.inside(spot, polygon)) {
+      $.ajax({
+        dataType: 'text',
+        type: 'post',
+        url: '/api/v1/area_watches',
+        data : { data_value: JSON.stringify(spot), data_poly: JSON.stringify(polygon) }
+      })
+    }
   }
-}
 
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
 

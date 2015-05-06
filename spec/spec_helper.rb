@@ -1,7 +1,14 @@
 require 'simplecov'
+require 'vcr'
+
 SimpleCov.start 'rails'
 
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/cassettes"
+  config.hook_into :faraday
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

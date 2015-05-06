@@ -10,8 +10,4 @@ class Api::V1::SpotsController < ApplicationController
     end
   end
 
-  def show
-    respond_with GeoSpots.create([current_user.spots.last])
-  end
-
 end

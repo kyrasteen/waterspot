@@ -2,8 +2,7 @@ class Api::V1::GaugesController < ApplicationController
   respond_to :json
 
   def create
-    Gauge.create_from_api(params[:state_id])
-    head :ok
+    respond_with Gauge.create_from_api(params[:state_id])
   end
 
   def show
