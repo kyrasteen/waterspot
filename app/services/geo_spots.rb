@@ -10,14 +10,15 @@ class GeoSpots
       {
         type: "Feature",
         geometry: {
-          type: "Point",
+          type:        "Point",
           coordinates: [spot.long.to_f, spot.lat.to_f]
         },
         properties: {
-          name:   spot.user.username,
-          date:   spot.formatted_date,
-          avatar: "#{spot.avatar}",
-          rating: spot.rating,
+          name:       spot.user.username,
+          river_name: spot.name,
+          date:       spot.formatted_date,
+          avatar:     "#{spot.avatar}",
+          rating:     spot.rating,
           "marker-color" => RATING_COLORS[spot.rating],
           "marker-symbol" => "",
           "marker-size" => "small",

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503041008) do
+ActiveRecord::Schema.define(version: 20150506045233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150503041008) do
     t.decimal  "lat",        precision: 10, scale: 7
     t.decimal  "long",       precision: 10, scale: 7
     t.string   "rating"
+    t.string   "name"
   end
 
   add_index "spots", ["user_id"], name: "index_spots_on_user_id", using: :btree

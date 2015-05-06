@@ -4,11 +4,9 @@ class Gauge < ActiveRecord::Base
     @service ||= UsgsService.new
   end
 
-  def self.update_values
-    STATES.each do |state|
-      gauges(state).each do |gauge|
-        update_gauge(gauge)
-      end
+  def self.update_values(state)
+    gauges(state).each do |gauge|
+      update_gauge(gauge)
     end
   end
 
@@ -24,18 +22,6 @@ class Gauge < ActiveRecord::Base
       )
     end
   end
-
-  STATES = [
-    "al","ak","az","ar","ca","co",
-    "ct","de","dc","fl","ga","hi",
-    "id","il","in","ia","ks","ky",
-    "la","me","md","ma","mi","mn",
-    "ms","mo","mt","ne","nv","nh",
-    "nj","nm","ny","nc","nd","oh",
-    "ok","or","pa","ri","sc","sd",
-    "tn","tx","ut","vt","va","wa",
-    "wv","wi","wy"
-  ]
 
   def self.gauges(state)
     service.gauges(state)["timeSeries"]

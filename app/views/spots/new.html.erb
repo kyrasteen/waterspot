@@ -7,6 +7,10 @@
         <div class="new-spot-form">
           <%= form_for [:user, current_user.spots.create] do |f| %>
             <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, placeholder: "name of watershed" %>
+            </div>
+            <div class="form-group">
               <%= f.label :lat %>
               <%= f.text_field :lat, placeholder: "latitude" %>
             </div>
