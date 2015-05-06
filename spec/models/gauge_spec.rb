@@ -15,9 +15,4 @@ describe "Gauge", type: :model do
     expect(Gauge.all.count).to eq(336)
   end
 
-  xit "updates value of a gauge" do
-    gauge = Gauge.create(lat:39, long:-104.6, name: "OSELIGEE CREEK NEAR LANETT AL", value: "88", state: "al")
-    Gauge.update_values
-    expect(gauge.value).not_to eq("88")
-  end
 end

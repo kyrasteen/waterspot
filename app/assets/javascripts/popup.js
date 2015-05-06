@@ -6,4 +6,14 @@ $(document).ready( function() {
   $("#close").click(function(){
     $("#popup").addClass("hide");
   });
+
+  // if(!localStorage["alertdisplayed"]) {
+      // $("#home-popup").addClass("show");
+
+    $("#close-btn").click(function(){
+      $("#home-popup").addClass("hide");
+    });
+
+    // localStorage["alertdisplayed"] = true
+//  }
 });

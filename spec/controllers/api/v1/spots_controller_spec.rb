@@ -2,8 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::SpotsController, type: :controller do
   describe "GET #index" do
-    xit "responds successfully with 200 ok status" do
+
+    before(:each) do
+    end
+
+    it "responds successfully with 200 ok status" do
+      user = User.create(username: "lucy", email: 'lu@example.com', password: "password")
+      ApplicationController.any_instance.stub(:current_user).and_return(user)
       get :index, format: :json
+
       spots = JSON.parse(response.body)
       spot  = spots.first
       expect(response.status).to eq(200)
@@ -11,12 +18,12 @@ RSpec.describe Api::V1::SpotsController, type: :controller do
   end
 
   describe "GET #show" do
-    xit "responds successfully with 200 ok status" do
-      user = User.create(username: "lucy", email:"lu@gmail.com", password:"password")
+    it "responds successfully with 200 ok status" do
+      user = User.create(username: "lucy", email: 'lu@example.com', password: "password")
+      ApplicationController.any_instance.stub(:current_user).and_return(user)
       user.spots.create(lat: 39.0, long:-103.0, rating: 3)
-      session[:user_id] = user.id
-      get :show, :id => 3
-      expect(response).to be_success
+      get :show, format: :json, id: 3
+      expect(response.status).to eq(200)
     end
   end
 end

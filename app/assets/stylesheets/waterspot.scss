@@ -71,6 +71,47 @@ body{
   cursor:pointer;
 }
 
+#close-btn{
+  @extend #close;
+  width:70px;
+  height:50px;
+  top:0;
+  right:0;
+  line-height:50px;
+  font-size:1em;
+}
+
+#home-popup{
+  position: absolute;
+  z-index: 4000;
+  top: 0;
+  background-color:white;
+  width: 100%;
+  height: 100%;
+  text-align:center;
+  line-height:100px;
+  font-family:$main-font;
+  section{
+    display:inline;
+    width:20%;
+    h3{
+      width:30%;
+      display:inline;
+      padding:10px;
+    }
+  }
+  #area{
+    float:none;
+    width:600px;
+    display:block;
+    margin:0 auto;
+  }
+  .popup-photo{
+    width:350px;
+    height:auto;
+  }
+}
+
 .show{
   display:block !important;
 }

@@ -15,6 +15,6 @@ describe "Geo Spots" do
     spot = Spot.create(lat:39.000, long:-82.5, user_id:user.id, rating:3)
 
     geospot = GeoSpots.create([spot])
-    expect(geospot.first[:properties]['marker-color']).to eq('#00a865')
+    expect(geospot.first[:properties]['marker-color']).to eq('#bbdbf6')
   end
 end

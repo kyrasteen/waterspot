@@ -12,10 +12,9 @@ $(document).ready(function() {
         });
       })
     })
-  });
+  })
 
-
-//include token in header jquery docs authorization header??????
+  //$.post('/api/v1/area_watches')
 function turfInside(polygon, spot) {
   if(turf.inside(spot, polygon)) {
     $.ajax({
@@ -26,7 +25,6 @@ function turfInside(polygon, spot) {
     })
   }
 }
-  });
 
   L.mapbox.accessToken = 'pk.eyJ1Ijoia3lyYXdlYmVyIiwiYSI6IkNpTExOQU0ifQ.hIs3Lhi-wDaWM122_ZIvNQ';
 
@@ -129,9 +127,9 @@ function turfInside(polygon, spot) {
             return stationLayer.setGeoJSON(data);
           }
         })
-      }, 100)
+      }, 500)
     })
-  }, 500);
+  }, 2000);
 
   $.ajax({
     dataType: 'text',
