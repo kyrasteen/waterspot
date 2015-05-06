@@ -33,13 +33,10 @@ function turfInside(polygon, spot) {
     bounds = L.latLngBounds(southWest, northEast);
 
   var map = L.mapbox.map('map', 'kyraweber.lp8mldi9', {
-    maxBounds: bounds,
     maxZoom: 19,
     minZoom: 2
   })
   .setView([39.7, -104.50], 7)
-
-  map.fitBounds(bounds);
 
   var mousemove = document.getElementById('mousemove');
 

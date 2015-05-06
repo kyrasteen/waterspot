@@ -1,7 +1,15 @@
 <div id="home-popup">
-<div id="close-btn">got it</div>
+
+<div id="close-btn">got it
+  <%= image_tag("right_arrow.png", class: "arrow") %>
+</div>
+
 <div id="content">
   <h1>welcome to waterspot</h1>
+  <section id="pics">
+    <%= image_tag("gauge_hover.jpg", class: "popup-photo") %>
+    <%= image_tag("spot.jpg", class: "popup-photo") %>
+  </section>
   <section>
     <h3>View Gauge Stations</h3>
   </section>
@@ -12,8 +20,8 @@
     <h3>Contribute a spot</h3>
   </section>
   <section id="area">
-    <h3>Create an area to watch for updates</h3>
     <%= image_tag("create_poly.jpg", class: "popup-photo") %>
+    <h3 id="area">Create an area to watch for updates</h3>
   </section>
 </div>
 </div>
