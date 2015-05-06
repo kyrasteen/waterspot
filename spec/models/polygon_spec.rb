@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Polygon, type: :model do
+  # If you use the shoulda gem, you can just do
+  # it { should validate_presence_of(:foo) }
+  # and avoid having to write all this boilerplate
   context "is valid" do
     it "with correct attributes" do
       user = User.create(username:'betty', email:'boo@example', password: "password")

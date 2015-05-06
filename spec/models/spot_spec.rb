@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+# You can get rid of the Rspec. call and just do "describe". I always do. Not
+# sure if there's a setting you need in the spec_helper or what, but I'd look
+# into it.
+#
 RSpec.describe Spot, type: :model do
   context "is valid" do
     it "with correct attributes" do
@@ -24,6 +28,8 @@ RSpec.describe Spot, type: :model do
   end
 
   it "has a formatted date" do
+    # What's with the whitespace?
+    # You should use a factory for the user creates in this file
     user           = User.create(username: "alex", password: "password", email: "alex@example.com")
     spot           = user.spots.create(lat: 31.330, long: -88.100, rating: "4", created_at:"Fri, 24 Apr 2015 04:17:27 UTC +00:00")
 

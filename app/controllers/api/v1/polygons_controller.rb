@@ -9,6 +9,8 @@ class Api::V1::PolygonsController < ApplicationController
 
   def create
     polygon_object = params[:data_value]
+    # What if that doesn't get created for some reason?
+    # Maybe return a head :bad_request or something?
     current_user.polygons.create(shape: polygon_object)
     head :ok
   end
