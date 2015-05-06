@@ -15,7 +15,6 @@ $(document).ready(function() {
     })
   })
 
-  //$.post('/api/v1/area_watches')
   function turfInside(polygon, spot) {
     if(turf.inside(spot, polygon)) {
       $.ajax({

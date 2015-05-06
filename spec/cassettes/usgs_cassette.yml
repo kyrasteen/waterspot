@@ -15,7 +15,7 @@ http_interactions:
       message: 
     headers:
       date:
-      - Wed, 06 May 2015 16:47:20 GMT
+      - Wed, 06 May 2015 20:05:46 GMT
       server:
       - GlassFish Server Open Source Edition  4.1
       location:
@@ -29,7 +29,7 @@ http_interactions:
       x-ua-compatible:
       - IE=edge,chrome=1
       responsetime:
-      - D=524 t=1430930840253950
+      - D=543 t=1430942746732064
       connection:
       - close
     body:
@@ -37,5 +37,5 @@ http_interactions:
       string: "<html>\r\n<head><title>Document moved</title></head>\r\n<body><h1>Document
         moved</h1>\r\nThis document has moved <a href=\"http://127.0.0.1:8080/nwis/dv/?format=json&amp;parameterCd=00060&amp;siteType=ST&amp;siteStatus=active&amp;stateCd=co\">here</a>.<p>\r\n</body>\r\n</html>\r\n"
     http_version: 
-  recorded_at: Wed, 06 May 2015 16:47:20 GMT
+  recorded_at: Wed, 06 May 2015 20:05:45 GMT
 recorded_with: VCR 2.9.3

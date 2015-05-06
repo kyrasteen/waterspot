@@ -21,3 +21,13 @@ namespace :scheduler do
     puts "fin"
   end
 end
+
+namespace :scheduler do
+  desc "This task is called by heroku to delete expired spots and polygons"
+  task :delete_expired => :environment do
+    puts "deleting expired..."
+    Spot.expire_outdated
+    Polygon.expire_outdated
+    puts "fin"
+  end
+end

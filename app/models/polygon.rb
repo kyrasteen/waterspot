@@ -3,7 +3,7 @@ class Polygon < ActiveRecord::Base
 
   belongs_to :user
 
-  # def expire_outdated
-  #   all.delete_if
-  # end
+   def self.expire_outdated
+     where(["created_at < ?", Date.today - 30]).delete_all
+   end
 end

@@ -17,10 +17,12 @@ RSpec.describe Polygon, type: :model do
     end
   end
 
-  xit "expires if older than one month" do
+  it "expires if older than one month" do
     user = User.create(username:'betty', email:'boo@example', password: "password")
-    user.polygons.create(shape:'[54.6, -98.1]', user_id: user.id, created_at: "" )
-    expect(user.polygons).to eq([])
+    user.polygons.create(shape:'[54.6, -98.1]', user_id: user.id, created_at: Date.today - 40 )
+    expect(Polygon.all.first).to eq(user.polygons.first)
+    Polygon.expire_outdated
+    expect(Polygon.all).to eq([])
   end
 
 end

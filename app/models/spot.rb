@@ -13,4 +13,8 @@ class Spot < ActiveRecord::Base
     created_at.strftime("%A, %b %d")
   end
 
+   def self.expire_outdated
+     where(["created_at < ?", Date.today - 30]).delete_all
+   end
+
 end
