@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $.ajaxPrefilter(function(options, originalOptions, xhr) {
+    xhr.setRequestHeader('Token', 'secret');
+  });
+
   $('#new_spot').on('submit', function(event) {
     $.getJSON('/api/v1/polygons').
       then(function(data) {
@@ -68,6 +72,7 @@ $(document).ready(function() {
     var layer = e.layer;
     var geopolygon = layer.toGeoJSON();
     $("nav").append("<p id='area_notice'>Area saved</p>")
+
     $.ajax({
       url : "/api/v1/polygons.json",
       type : "post",

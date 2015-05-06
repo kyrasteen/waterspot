@@ -1,5 +1,6 @@
 class Api::V1::PolygonsController < ApplicationController
   respond_to :json
+  before_action :authenticate, only: [:index]
 
   def index
     geo_polygons = GeoPoly.create(Polygon.all)
@@ -18,4 +19,11 @@ class Api::V1::PolygonsController < ApplicationController
     end
   end
 
+  private
+
+  def authenticate
+    authenticate_or_request_with_http_token do |token,_|
+      ApiKey.exists?(token: token)
+    end
+  end
 end
