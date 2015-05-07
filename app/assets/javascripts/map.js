@@ -99,7 +99,7 @@ $(document).ready(function() {
 
   function popupMarkup(spot) {
     return "<h3 class='popup'>user: " + spot.name + "</h3><h3 class='popup'>name: " + spot.river_name + "</h3><h3 class='popup'> date: "
-    + spot.date + "</h3><h3 class='popup'>rating: " + spot.rating + "</h3><img src=" + spot.avatar + "></img>";
+    + spot.date + "</h3><h3 class='popup'>rating: " + spot.rating + "</h3>";
   }
 
   spotLayer.on('layeradd', function(e) {
