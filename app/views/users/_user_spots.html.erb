@@ -1,4 +1,4 @@
-<% current_user.spots.each do |spot|  %>
+<% current_user.spots.reverse.each do |spot|  %>
   <section class="spot-unit">
     <figure>
       <%= image_tag spot.avatar, class:"water-pic" %>
