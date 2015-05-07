@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Spot, type: :model do
+describe Spot, type: :model do
+
   context "is valid" do
     it "with correct attributes" do
       user = User.create(username:'betty', email:'boo@example')

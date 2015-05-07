@@ -20,7 +20,6 @@ gem 'responders', '~> 2.0'
 gem 'faraday', "<0.9.0"
 
 group :development, :test do
-  gem 'vcr'
   gem 'simplecov', :require => false, :group => :test
   gem 'pry'
   gem 'launchy'

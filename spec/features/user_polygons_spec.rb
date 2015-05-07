@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe "User Polygons", :type => :feature do
-
   before(:each) do
     @user = User.create(username:"betty", email: "boo@example.com", password: "password")
     login_user(@user)
@@ -13,5 +12,4 @@ describe "User Polygons", :type => :feature do
       expect(@user.polygons.first.shape).to eq("hello")
     end
   end
-
 end

@@ -1,11 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::SpotsController, type: :controller do
+describe Api::V1::SpotsController, type: :controller do
   describe "GET #index" do
-
-    before(:each) do
-    end
-
     it "responds successfully with 200 ok status" do
       user = User.create(username: "lucy", email: 'lu@example.com', password: "password")
       user.spots.create(name: "Boulder creek", rating: "4", lat:38.90992, long:-104.499,)
@@ -18,5 +14,4 @@ RSpec.describe Api::V1::SpotsController, type: :controller do
       expect(spot['properties']['river_name']).to eq("Boulder creek")
     end
   end
-
 end
