@@ -1,13 +1,10 @@
 class Api::V1::SpotsController < ApplicationController
   respond_to :json
+  before_action :authorize
 
   def index
-    if current_user
-      geojson = GeoSpots.create(Spot.all)
-      respond_with geojson
-    else
-      redirect_to root_path
-    end
+    geojson = GeoSpots.create(Spot.all)
+    respond_with geojson
   end
 
 end

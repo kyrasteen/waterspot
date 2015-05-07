@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-  $.ajaxPrefilter(function(options, originalOptions, xhr) {
-    xhr.setRequestHeader('Token', 'secret');
-  });
+  // $.ajaxPrefilter(function(options, originalOptions, xhr) {
+  //   xhr.setRequestHeader('Token', 'secret');
+  // });
 
   $('#new_spot').on('submit', function(event) {
     $.getJSON('/api/v1/polygons').
@@ -101,12 +101,16 @@ $(document).ready(function() {
     });
   });
 
+  function popupMarkup(spot) {
+    return "<h3 class='popup'>user: " + spot.name + "</h3><h3 class='popup'>name: " + spot.river_name + "</h3><h3 class='popup'> date: "
+    + spot.date + "</h3><h3 class='popup'>rating: " + spot.rating + "</h3><img src=" + '/assets/' + spot.avatar + "></img>";
+  }
+
   spotLayer.on('layeradd', function(e) {
     var marker, popupContent, properties;
     marker = e.layer;
     properties = marker.feature.properties;
-    popupContent = "<h3 class='popup'>user: " + properties.name + "</h3><h3 class='popup'>name: " + properties.river_name + "</h3><h3 class='popup'> date: "
-    + properties.date + "</h3><h3 class='popup'>rating: " + properties.rating + "</h3><img src=" + properties.avatar + "></img>";
+    popupContent = popupMarkup(properties);
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 300

@@ -1,6 +1,6 @@
 class Api::V1::PolygonsController < ApplicationController
   respond_to :json
-  before_action :authenticate, only: [:index]
+  before_action :authorize
 
   def index
     geo_polygons = GeoPoly.create(Polygon.all)
@@ -9,21 +9,13 @@ class Api::V1::PolygonsController < ApplicationController
   end
 
   def create
-    if current_user
-      polygon_object = params[:data_value]
-      current_user.polygons.create(shape: polygon_object)
+    polygon_object = params[:data_value]
+    polygon = current_user.polygons.new(shape: polygon_object)
+    if polygon.save
       head :ok
     else
-      flash[:error] = "Must be logged in to save an area"
-      head :ok
+      head :bad_request
     end
   end
 
-  private
-
-  def authenticate
-    authenticate_or_request_with_http_token do |token,_|
-      ApiKey.exists?(token: token)
-    end
-  end
 end

@@ -1,9 +1,7 @@
 class Spot < ActiveRecord::Base
-  validates :lat,  presence: true
-  validates :long, presence: true
+  validates :lat,  presence: true, numericality: true
+  validates :long, presence: true, numericality: true
   validates :rating, presence: true
-  validates_numericality_of :lat
-  validates_numericality_of :long
 
   belongs_to :user
 
