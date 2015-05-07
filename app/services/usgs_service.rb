@@ -1,18 +1,18 @@
 class UsgsService
   attr_reader :connection
 
- def initialize
-   @connection = Faraday.new(url: "http://waterservices.usgs.gov/nwis/dv/")
- end
+  def initialize
+    @connection = Faraday.new(url: "http://waterservices.usgs.gov/nwis/dv/")
+  end
 
- def gauges(state)
-   parse(connection.get("?format=json&parameterCd=00060&siteType=ST&siteStatus=active&stateCd=#{state}"))
- end
+  def gauges(state)
+    parse(connection.get("?format=json&parameterCd=00060&siteType=ST&siteStatus=active&stateCd=#{state}"))
+  end
 
- private
+  private
 
- def parse(response)
-   JSON.parse(response.body)["value"]
- end
+  def parse(response)
+    JSON.parse(response.body)["value"]
+  end
 
 end
