@@ -113,19 +113,6 @@ $(document).ready(function() {
     });
   });
 
-   // $(document).on('click',".leaflet-clickable", function(el) {
-   //   console.log(el);
-   //   console.log("hello");
-   //      $.ajax({
-   //        dataType: 'json',
-   //        url: "/api/v1/gauges/" + $('.leaflet-popup-content').text(),
-   //        type: "get",
-   //        success: function(data) {
-   //          return stationLayer.setGeoJSON(data);
-   //        }
-   //      })
-   //     })
-
   setTimeout(function() {
     $(".leaflet-clickable").on("click", $(this), function() {
       setTimeout(function(){
