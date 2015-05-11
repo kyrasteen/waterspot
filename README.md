@@ -12,6 +12,10 @@ bundle
 
 rake db:setup
 
+For the most updated water gauge values (automatically updated daily), run:
+
+rake scheduler:update_gauges
+
 
 
 
