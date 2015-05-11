@@ -4,6 +4,8 @@ describe UsgsService do
   it "return gauges for a given state" do
     service = UsgsService.new
     co_gauges = service.gauges("co")
-    expect(co_gauges.first[1]['note'].first['value']).to eq("[co]")
+    co_gauges.each do |gauge|
+      expect(gauge["sourceInfo"]["siteName"].include?("CO"))
+    end
   end
 end
