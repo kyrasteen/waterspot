@@ -26,16 +26,16 @@ class Gauge < ActiveRecord::Base
 
   def self.update_values(state)
     gauges(state).each do |gauge|
-      update_gauge(gauge)
+      update_gauge(gauge, state)
     end
   end
 
-  def self.update_gauge(gauge)
+  def self.update_gauge(gauge, state)
     found_gauge = find_by( name: gauge['sourceInfo']["siteName"])
     if found_gauge
       found_gauge.update_attributes(value: gauge['values'][0]['value'][0]['value'])
     else
-     Gauge.make(gauge)
+     Gauge.make(gauge, state)
     end
   end
 end
