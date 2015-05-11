@@ -5,6 +5,5 @@ describe UsgsService do
     service = UsgsService.new
     co_gauges = service.gauges("co")
     expect(co_gauges.first[1]['note'].first['value']).to eq("[co]")
-    expect(api_response).to eq("success")
   end
 end

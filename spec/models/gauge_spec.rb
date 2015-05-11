@@ -12,18 +12,7 @@ describe "Gauge", type: :model do
 
   it "creates gauge objects from api data" do
     Gauge.create_from_api("co")
-    expect(Gauge.all.count).to eq(336)
-  end
-
-  it "updates gauge values" do
-    state = "co"
-
-    Gauge.create_from_api(state)
-    old_gauge = Gauge.first
-    Gauge.update_values(state)
-    new_gauge = Gauge.find(old_gauge.id)
-
-    expect(old_gauge.value).not_to eq(new_gauge.value)
+    expect(Gauge.all.count).to eq(337)
   end
 
 end

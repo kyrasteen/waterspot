@@ -11,14 +11,13 @@ class Gauge < ActiveRecord::Base
   end
 
   def self.create_from_api(params)
-    state = service.gauges(params)["queryInfo"]["note"].first["value"]
     gauges(params).each do |gauge|
       Gauge.create(
         lat: gauge['sourceInfo']['geoLocation']['geogLocation']['latitude'],
         long: gauge['sourceInfo']['geoLocation']['geogLocation']['longitude'],
         name: gauge['sourceInfo']["siteName"],
         value: gauge['values'][0]['value'][0]['value'],
-        state: state.match(/\w+/)
+        state: params
       )
     end
   end
