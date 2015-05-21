@@ -28,6 +28,10 @@ footer{
 }
 
 .icon, .git-icon, .ello-icon{
+  @media
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+
   width:20px;
   height:auto;
   position:absolute;
@@ -35,14 +39,21 @@ footer{
   left:4%;
   opacity:.8;
 }
+  width:20px;
+  height:auto;
+  position:absolute;
+  top:21;
+  left:3%;
+  opacity:.8;
+}
 
 .git-icon{
-  left:11%;
+  left:7.5%;
   width:25px;
 }
 
 .ello-icon{
-  left:19.5%;
+  left:13%;
   top:22;
   width:19px;
 }

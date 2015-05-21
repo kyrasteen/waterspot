@@ -48,7 +48,13 @@
     position:absolute;
     margin:0 auto;
     margin-top:98px;
-    margin-left:11%;
+    @media
+    (-webkit-min-device-pixel-ratio: 2),
+    (-moz-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+      margin-left:11%;
+    }
+    margin-left:16%;
     background-color:$mid-blue;
     text-align:center;
     font-family:$main-font;
