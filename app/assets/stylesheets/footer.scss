@@ -30,6 +30,7 @@ footer{
 .icon, .git-icon, .ello-icon{
   @media
   (-webkit-min-device-pixel-ratio: 2),
+  (-moz-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi) {
 
   width:20px;
@@ -48,12 +49,24 @@ footer{
 }
 
 .git-icon{
+  @media
+  (-webkit-min-device-pixel-ratio: 2),
+  (-moz-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+  left:11%;
+}
   left:7.5%;
   width:25px;
 }
 
 .ello-icon{
-  left:13%;
+  @media
+  (-webkit-min-device-pixel-ratio: 2),
+  (-moz-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+  left:19.5%;
   top:22;
   width:19px;
+}
+  left:13%;
 }
