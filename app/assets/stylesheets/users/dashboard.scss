@@ -34,81 +34,88 @@
   fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  left:54%;
-  top:30%;
-  &:hover{
-  transition: fill .7s ease;
-    fill:none;
+  @media
+  (-webkit-min-device-pixel-ratio: 2),
+  (-moz-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+    left:54%;
+    top:30%;
+  }
+    left:52%;
+    top:22%;
+    &:hover{
+      transition: fill .7s ease;
+      fill:none;
+      text{
+        fill:$main-blue;
+      }
+    }
     text{
-      fill:$main-blue;
+      fill:$light-blue;
+      stroke:none;
+    }
+    @include media(870px)  { display:none; }
+    @include media(1000px) { left:56%; }
+    @include media(950px)  { left:57%; }
+  }
+
+  .user-specs{
+    display:inline;
+    margin-left:30px;
+    h5, h4{
+      background-color:$mid-blue;
+      margin-left:5%;
+      position:absolute;
+      top:410;
+      @include media(medium) { top:214px; }
+      @include media(590px) { top:230px; margin-left:8%; }
+      @include media(470px) { top:94px; margin-left:59%; }
+      @include media(440px) { margin-left:47%; }
+    }
+    h4{
+      top:390;
+      @include media(590px) { top:373px; }
+      @include media(medium) { top:196px; }
+      @include media(470px) { top:74px; }
     }
   }
-  text{
-    fill:$light-blue;
-    stroke:none;
-  }
-  @include media(870px)  { display:none; }
-  @include media(1000px) { left:56%; }
-  @include media(950px)  { left:57%; }
-}
 
-.user-specs{
-  display:inline;
-  margin-left:30px;
-  h5, h4{
-    background-color:$mid-blue;
-    margin-left:5%;
-    position:absolute;
-    top:410;
-    @include media(medium) { top:214px; }
-    @include media(590px) { top:230px; margin-left:8%; }
-    @include media(470px) { top:94px; margin-left:59%; }
-    @include media(440px) { margin-left:47%; }
+  .spot-specs{
+    width:24%;
+    margin-left:46%;
+    margin-top:-8%;
+    text-align:center;
+    li{
+      text-align:left;
+      background-color:$mid-blue;
+      padding:0 3px;
+    }
+    @include media(940px) { margin-top:-11%; }
+    @include media(850px) { width:40%; margin-top:-12%; margin-left:53%; }
+    @include media(medium) { margin-top:-17%; margin-left:53%; }
+    @include media(590px) { margin-top:-15%; margin-left:51%; }
+    @include media(475px) { width:40%; margin-top:-19%; margin-left:45%; }
+    @include media(400px) { margin-top:-24%; }
   }
-  h4{
-    top:390;
-    @include media(590px) { top:373px; }
-    @include media(medium) { top:196px; }
-    @include media(470px) { top:74px; }
-  }
-}
 
-.spot-specs{
-  width:24%;
-  margin-left:46%;
-  margin-top:-8%;
-  text-align:center;
-  li{
-    text-align:left;
-    background-color:$mid-blue;
-    padding:0 3px;
+  .water-pic{
+    width:100px;
+    height:100px;
+    display:inherit;
+    margin-left:37%;
+    -webkit-clip-path: polygon(50% 0%, 88% 13%, 99% 76%, 50% 100%, 0 67%, 18% 12%);
+    clip-path: polygon(50% 0%, 88% 13%, 99% 76%, 50% 100%, 0 67%, 18% 12%);
+    @include media(470px) { margin-left:22%; }
+    @include media(400px) { margin-left:12%; }
   }
-  @include media(940px) { margin-top:-11%; }
-  @include media(850px) { width:40%; margin-top:-12%; margin-left:53%; }
-  @include media(medium) { margin-top:-17%; margin-left:53%; }
-  @include media(590px) { margin-top:-15%; margin-left:51%; }
-  @include media(475px) { width:40%; margin-top:-19%; margin-left:45%; }
-  @include media(400px) { margin-top:-24%; }
-}
 
-.water-pic{
-  width:100px;
-  height:100px;
-  display:inherit;
-  margin-left:37%;
-  -webkit-clip-path: polygon(50% 0%, 88% 13%, 99% 76%, 50% 100%, 0 67%, 18% 12%);
-  clip-path: polygon(50% 0%, 88% 13%, 99% 76%, 50% 100%, 0 67%, 18% 12%);
-  @include media(470px) { margin-left:22%; }
-  @include media(400px) { margin-left:12%; }
-}
-
-.spot-unit{
-  margin-top:40px;
-  &:first-of-type{
-    @include media(890px) { margin-top:226px; }
-    @include media(small) { margin-top:300px; }
+  .spot-unit{
+    margin-top:40px;
+    &:first-of-type{
+      @include media(890px) { margin-top:226px; }
+      @include media(small) { margin-top:300px; }
+    }
+    @include media(890px) { padding-bottom:3px; }
+    @include media(medium) { margin-top:20px; }
+    @include media(small) { width:90%; }
   }
-  @include media(890px) { padding-bottom:3px; }
-  @include media(medium) { margin-top:20px; }
-  @include media(small) { width:90%; }
-}

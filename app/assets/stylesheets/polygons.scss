@@ -82,7 +82,13 @@ text{
 .profile{
   position:absolute;
   top:41%;
+  @media
+  (-webkit-min-device-pixel-ratio: 2),
+  (-moz-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
   left:82%;
+}
+  left:88%;
 
   @include media(1220px) { left:81%; }
   @include media(1110px) { left:80%; }
