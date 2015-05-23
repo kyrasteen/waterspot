@@ -60,6 +60,9 @@
   @include media(1300px) { margin-top:-420px; }
   @include media(1200px) { margin-top:-400px; }
   @include media(1150px) { margin-top:-420px; }
+  @include media(900px) { margin-top:-480px; }
+  @include media(750px) { margin-top:-510px; }
+  @include media(670px) { margin-top:-540px; }
   margin-top: -400px;
   font-size:1.3em;
   font-family:$main-font;
@@ -80,26 +83,22 @@
   @include media(1400px) { top:38% !important; left:30% !important; }
   @include media(1330px) { top:37% !important; left:29% !important; }
   @include media(1150px) { top:36% !important; left:28% !important; }
-  @include media(1070px) { top:35% !important; left:27% !important; }
+  @include media(1070px) { top:33% !important; left:26% !important; }
+  @include media(950px) { top:31% !important; left:25% !important; }
+  @include media(860px) { top:28% !important; left:23% !important; }
+  @include media(770px) { top:26% !important; left:21% !important; }
+  @include media(700px) { top:24% !important; left:19% !important; }
+  @include media(630px) { top:22% !important; left:17% !important; }
 }
 
 .register-form, .login-form{
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (-moz-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-    width:80%;
-    top:38%;
-    left:29.5%;
-    position:absolute;
-    z-index:10;
-  }
     width:80%;
     top:38%;
     left:33%;
     position:absolute;
     z-index:10;
 
+    @include media(1660px) { left:33%; }
     @include media(1660px) { left:31%; }
     @include media(1560px) { top:41%; }
     @include media(1450px) { left:30%; }
@@ -108,10 +107,10 @@
     @include media(1100px) { left:27%; top:37%; }
     @include media(1020px) { left:26%; }
     @include media(950px)  { left:25%; }
-    @include media(900px)  { left:24%; }
+    @include media(900px)  { left:24%; top:33%; }
     @include media(840px)  { left:23%; }
-    @include media(800px)  { left:22%; }
-    @include media(750px)  { left:21%; }
+    @include media(800px)  { left:22%; top:30%; }
+    @include media(750px)  { left:21%; top:27%; }
     @include media(730px)  { left:20%; }
     @include media(680px)  { left:19%; }
     @include media(660px)  { left:18%; }

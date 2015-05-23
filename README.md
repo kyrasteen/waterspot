@@ -8,6 +8,10 @@ consume an API and use Ajax and JSON to transfer data in my application and to m
 
 https://waterspot.herokuapp.com
 
+example login:
+email: boo@example.com
+password: password
+
 bundle
 
 rake db:setup
