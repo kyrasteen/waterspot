@@ -55,16 +55,11 @@
   width:20%;
   margin:0 auto;
   text-align:center;
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (-moz-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-    margin-top: -270px;
-}
   @include media(1700px) { margin-top:-460px; }
-  @include media(1450px) { margin-top:-480px; }
-  @include media(1300px) { margin-top:-500px; }
-  @include media(1200px) { margin-top:-520px; }
+  @include media(1600px) { margin-top:-440px; }
+  @include media(1300px) { margin-top:-420px; }
+  @include media(1200px) { margin-top:-400px; }
+  @include media(1150px) { margin-top:-420px; }
   margin-top: -400px;
   font-size:1.3em;
   font-family:$main-font;
@@ -77,7 +72,15 @@
 }
 
 .register-form{
-  @include media(1560px) { top:31%; }
+  @include media(1650px) { left:32% !important; }
+  @include media(1660px) { top:38% !important; }
+  @include media(1580px) { top:36% !important; }
+  @include media(1550px) { top:38% !important; }
+  @include media(1480px) { top:39% !important; left:31% !important; }
+  @include media(1400px) { top:38% !important; left:30% !important; }
+  @include media(1330px) { top:37% !important; left:29% !important; }
+  @include media(1150px) { top:36% !important; left:28% !important; }
+  @include media(1070px) { top:35% !important; left:27% !important; }
 }
 
 .register-form, .login-form{
@@ -98,11 +101,11 @@
     z-index:10;
 
     @include media(1660px) { left:31%; }
-    @include media(1560px) { top:31%; }
+    @include media(1560px) { top:41%; }
     @include media(1450px) { left:30%; }
-    @include media(1350px) { left:29%; top:30%; }
-    @include media(1200px) { left:28%; top:28%; }
-    @include media(1100px) { left:27%; }
+    @include media(1350px) { left:29%; }
+    @include media(1200px) { left:28%; top:40%; }
+    @include media(1100px) { left:27%; top:37%; }
     @include media(1020px) { left:26%; }
     @include media(950px)  { left:25%; }
     @include media(900px)  { left:24%; }
