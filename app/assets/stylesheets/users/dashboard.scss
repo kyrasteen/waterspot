@@ -47,10 +47,11 @@
       fill:$light-blue;
       stroke:none;
     }
-    @include media(870px)  { display:none; }
-    @include media(1920px) { top:27%; }
+    @include media(1920px) { top:23%; }
+    @include media(1320px) { top:21%; left:53%; }
     @include media(1000px) { left:56%; }
     @include media(950px)  { left:57%; }
+    @include media(870px)  { display:none; }
   }
 
   .user-specs{
