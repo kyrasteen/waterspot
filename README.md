@@ -10,6 +10,7 @@ https://waterspot.herokuapp.com
 
 example login:
 email: boo@example.com
+
 password: password
 
 bundle
