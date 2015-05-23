@@ -69,9 +69,10 @@ text{
   margin:0 auto;
   padding-top:17%;
   display:block;
-  @include media(1040px) { padding-top:21%; }
-  @include media(875px) { padding-top:26%; }
-  @include media(755px) { padding-top:31%; }
+  @include media(1750px) { padding-top:19%; }
+  @include media(1550px) { padding-top:21%; }
+  @include media(1550px) { padding-top:23%; }
+  @include media(1250px) { padding-top:28%; }
   @include media(600px) { bottom:1%; }
   @include media(600px) { left:2%; }
   @include media(585px) { bottom:-21%; }
@@ -82,14 +83,14 @@ text{
 .profile{
   position:absolute;
   top:41%;
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (-moz-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
   left:82%;
-}
-  left:88%;
 
+  @include media(2350px) { left:90%; }
+  @include media(2150px) { left:89%; }
+  @include media(1950px) { left:87%; }
+  @include media(1550px) { left:85%; }
+  @include media(1480px) { left:84%; }
+  @include media(1310px) { left:82%; }
   @include media(1220px) { left:81%; }
   @include media(1110px) { left:80%; }
   @include media(1090px) { left:78%; }

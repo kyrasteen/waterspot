@@ -1,12 +1,12 @@
 @import 'base';
 
 .new_spot{
-  top:35%;
   left:19%;
   position:absolute;
   z-index:100;
   width:60%;
   text-align:center;
+  @include media(2260px) { top:38%; }
   @include media(550px) { top:31%; width:70%; left:13%; }
   @include media(458px) { background-color:rgba(255, 255, 255, 0.82); }
 }

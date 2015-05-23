@@ -90,7 +90,10 @@
       background-color:$mid-blue;
       padding:0 3px;
     }
-    @include media(940px) { margin-top:-11%; }
+    @include media(1920px) { margin-top:-6%; }
+    @include media(1450px) { margin-top:-8%; }
+    @include media(1250px) { margin-top:-8.5%; }
+    @include media(1000px) { margin-top:-11%; }
     @include media(850px) { width:40%; margin-top:-12%; margin-left:53%; }
     @include media(medium) { margin-top:-17%; margin-left:53%; }
     @include media(590px) { margin-top:-15%; margin-left:51%; }

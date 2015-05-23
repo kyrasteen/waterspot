@@ -61,6 +61,10 @@
   (min-resolution: 192dpi) {
     margin-top: -270px;
 }
+  @include media(1700px) { margin-top:-460px; }
+  @include media(1450px) { margin-top:-480px; }
+  @include media(1300px) { margin-top:-500px; }
+  @include media(1200px) { margin-top:-520px; }
   margin-top: -400px;
   font-size:1.3em;
   font-family:$main-font;
@@ -70,6 +74,10 @@
 .sign-up-login{
   height:100px;
   margin-top:-20px;
+}
+
+.register-form{
+  @include media(1560px) { top:31%; }
 }
 
 .register-form, .login-form{
@@ -89,7 +97,11 @@
     position:absolute;
     z-index:10;
 
-    @include media(1200px) { left:28%; }
+    @include media(1660px) { left:31%; }
+    @include media(1560px) { top:31%; }
+    @include media(1450px) { left:30%; }
+    @include media(1350px) { left:29%; top:30%; }
+    @include media(1200px) { left:28%; top:28%; }
     @include media(1100px) { left:27%; }
     @include media(1020px) { left:26%; }
     @include media(950px)  { left:25%; }

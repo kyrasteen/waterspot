@@ -28,45 +28,31 @@ footer{
 }
 
 .icon, .git-icon, .ello-icon{
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (-moz-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-
-  width:20px;
-  height:auto;
-  position:absolute;
-  top:21;
-  left:4%;
-  opacity:.8;
-}
   width:20px;
   height:auto;
   position:absolute;
   top:21;
   left:3%;
   opacity:.8;
+  @include media(1450px) { left:5%; }
 }
 
 .git-icon{
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (-moz-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-  left:11%;
-}
-  left:7.5%;
+  left:8.5%;
   width:25px;
+  @include media(1920px) { left:7.5%; }
+  @include media(1750px) { left:8.5%; }
+  @include media(1600px) { left:9%; }
+  @include media(1500px) { left:9.5%; }
+  @include media(1360px) { left:11.5%; }
 }
 
 .ello-icon{
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (-moz-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-  left:19.5%;
-  top:22;
-  width:19px;
-}
-  left:13%;
+  @include media(1920px) { left:13.5%; }
+  @include media(1750px) { left:14.5%; }
+  @include media(1600px) { left:16%; }
+  @include media(1500px) { left:17%; }
+  @include media(1360px) { left:21%; }
+  @include media(1280px) { left:20%; }
+  left:15%;
 }
