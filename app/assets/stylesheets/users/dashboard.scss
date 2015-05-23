@@ -34,13 +34,6 @@
   fill:$main-blue;
   stroke:$mid-blue;
   stroke-width:4px;
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (-moz-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-    left:54%;
-    top:30%;
-  }
     left:52%;
     top:22%;
     &:hover{
@@ -55,6 +48,7 @@
       stroke:none;
     }
     @include media(870px)  { display:none; }
+    @include media(1920px) { top:27%; }
     @include media(1000px) { left:56%; }
     @include media(950px)  { left:57%; }
   }
