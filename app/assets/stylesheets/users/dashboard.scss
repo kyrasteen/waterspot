@@ -47,6 +47,8 @@
       fill:$light-blue;
       stroke:none;
     }
+    @include media(1000px) { top: 210px; left:56%; }
+    @include media(960px) { left:58%; }
     @include media(870px)  { display:none; }
   }
 
