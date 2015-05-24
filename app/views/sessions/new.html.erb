@@ -26,10 +26,11 @@
     </text>
     </g>
   </svg>
+  <section id="tweet-login">
+    <p id="or">or</p>
+    <%= link_to "sign in with twitter", '/auth/twitter', class: "login-twitter-link"  %>
+  </section>
 </div>
 
-<p id="or">or</p>
-
-<%= link_to "sign in with twitter", '/auth/twitter', class: "login-twitter-link"  %>
 
 <%= render partial: "shared/footer" %>

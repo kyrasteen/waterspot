@@ -38,7 +38,7 @@
 .login-twitter-link{
   display:block;
   margin:0 auto;
-  width:12%;
+  width:14%;
   text-align:center;
   margin-top:30px;
   font-family:$main-font;
@@ -50,21 +50,20 @@
   }
 }
 
-#or{
-  display:block;
-  width:20%;
+#tweet-login{
+  position:absolute;
+  z-index:10;
   margin:0 auto;
-  padding-top:15%;
   text-align:center;
-  @include media(1700px) { margin-top:-660px; }
-  @include media(1600px) { margin-top:-640px; }
-  @include media(1440px) { margin-top:-420px; }
-  @include media(1200px) { margin-top:-400px; }
-  @include media(1150px) { margin-top:-420px; }
-  @include media(900px) { margin-top:-480px; }
-  @include media(750px) { margin-top:-510px; }
-  @include media(670px) { margin-top:-540px; }
-  margin-top: -400px;
+  width:100%;
+  display:block;
+  top:550px;
+}
+
+#or{
+  width:100%;
+  margin:0 auto;
+  text-align:center;
   font-size:1.3em;
   font-family:$main-font;
   color:$mid-blue;
@@ -82,13 +81,13 @@
 .register-form, .login-form{
     width:80%;
     padding-top:42px;
-    top:310px;
+    top:350px;
     left:33%;
     position:absolute;
     z-index:10;
 
-    @include media(1660px) { left:33%; }
-    @include media(1660px) { left:31%; }
+    @include media(1860px) { top:330px; }
+    @include media(1660px) { top:320px; }
     @include media(1450px) { left:30%; }
     @include media(1350px) { left:29%; }
     @include media(1200px) { left:28%; }
