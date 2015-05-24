@@ -70,9 +70,7 @@ text{
   padding-top:17%;
   display:block;
   @include media(1750px) { padding-top:19%; }
-  @include media(1550px) { padding-top:21%; }
-  @include media(1550px) { padding-top:23%; }
-  @include media(1250px) { padding-top:28%; }
+  @include media(1150px) { padding-top:24%; }
   @include media(600px) { bottom:1%; }
   @include media(600px) { left:2%; }
   @include media(585px) { bottom:-21%; }
