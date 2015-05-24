@@ -8,7 +8,7 @@
         <%= form_for :user, url: users_path do |f| %>
           <section class="form-group">
             <%= f.label :username %>
-            <%= f.text_field :username, required: true %>
+            <%= f.text_field :username, required: true, id: "username-field" %>
           </section>
           <section class="form-group">
             <%= f.label :email %>
@@ -20,7 +20,7 @@
           </section>
           <section class="form-group">
             <%= f.label :confirm_password %>
-            <%= f.password_field :password %>
+            <%= f.password_field :password, id: "confirm-password" %>
           </section>
           <section class="form-group">
             <%= f.file_field :avatar %><br>
