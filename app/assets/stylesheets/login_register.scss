@@ -54,10 +54,11 @@
   display:block;
   width:20%;
   margin:0 auto;
+  padding-top:15%;
   text-align:center;
-  @include media(1700px) { margin-top:-460px; }
-  @include media(1600px) { margin-top:-440px; }
-  @include media(1300px) { margin-top:-420px; }
+  @include media(1700px) { margin-top:-660px; }
+  @include media(1600px) { margin-top:-640px; }
+  @include media(1440px) { margin-top:-420px; }
   @include media(1200px) { margin-top:-400px; }
   @include media(1150px) { margin-top:-420px; }
   @include media(900px) { margin-top:-480px; }
@@ -75,39 +76,26 @@
 }
 
 .register-form{
-  @include media(1650px) { left:32% !important; }
-  @include media(1660px) { top:38% !important; }
-  @include media(1580px) { top:36% !important; }
-  @include media(1550px) { top:38% !important; }
-  @include media(1480px) { top:39% !important; left:31% !important; }
-  @include media(1400px) { top:38% !important; left:30% !important; }
-  @include media(1330px) { top:37% !important; left:29% !important; }
-  @include media(1150px) { top:36% !important; left:28% !important; }
-  @include media(1070px) { top:33% !important; left:26% !important; }
-  @include media(950px) { top:31% !important; left:25% !important; }
-  @include media(860px) { top:28% !important; left:23% !important; }
-  @include media(770px) { top:26% !important; left:21% !important; }
-  @include media(700px) { top:24% !important; left:19% !important; }
-  @include media(630px) { top:22% !important; left:17% !important; }
+  padding-top:12px;
 }
 
 .register-form, .login-form{
     width:80%;
-    top:38%;
+    padding-top:42px;
+    top:310px;
     left:33%;
     position:absolute;
     z-index:10;
 
     @include media(1660px) { left:33%; }
     @include media(1660px) { left:31%; }
-    @include media(1560px) { top:41%; }
     @include media(1450px) { left:30%; }
     @include media(1350px) { left:29%; }
-    @include media(1200px) { left:28%; top:40%; }
-    @include media(1100px) { left:27%; top:37%; }
+    @include media(1200px) { left:28%; }
+    @include media(1100px) { left:27%; }
     @include media(1020px) { left:26%; }
     @include media(950px)  { left:25%; }
-    @include media(900px)  { left:24%; top:33%; }
+    @include media(900px)  { left:24%; }
     @include media(840px)  { left:23%; }
     @include media(800px)  { left:22%; top:30%; }
     @include media(750px)  { left:21%; top:27%; }
