@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 function showHint() {
   var $nav = $('.large-nav')
-  $nav.append('<p class="hints">Enter your twitter username to login with twitter in the future!</p>')
+  $nav.append('<p class="hints">Enter your Twitter username to login with Twitter in the future!</p>')
 }
 
 function removeHint() {

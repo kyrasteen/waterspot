@@ -12,7 +12,7 @@ describe "Gauge", type: :model do
 
   it "creates gauge objects from api data" do
     Gauge.create_from_api("co")
-    expect(Gauge.all.count).to eq(337)
+    expect(Gauge.all.count).to be > 330
   end
 
 end

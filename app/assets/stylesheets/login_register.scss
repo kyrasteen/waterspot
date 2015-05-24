@@ -16,11 +16,14 @@
 
   input[type="submit"]{
     border:2px solid $main-blue;
-    pointer-events:none;
     &:hover{
       background-color:$main-blue;
       color:$light-blue;
     }
+  }
+
+  #submit-user{
+    pointer-events:none;
   }
 
   label{
@@ -64,6 +67,11 @@
   width:100%;
   display:block;
   top:550px;
+  @include media(1460px) { top:450px; }
+  @include media(1400px) { top:500px; }
+  @include media(970px) { top:450px; }
+  @include media(770px) { top:400px; }
+  @include media(575px) { top:360px; }
 }
 
 #or{
@@ -92,23 +100,20 @@
     position:absolute;
     z-index:10;
 
-    @include media(1860px) { top:330px; }
-    @include media(1660px) { top:320px; }
-    @include media(1450px) { left:30%; }
-    @include media(1350px) { left:29%; }
-    @include media(1200px) { left:28%; }
+    @include media(1860px) { top:330px; left:32%; }
+    @include media(1660px) { top:300px; }
+    @include media(1490px) { top:275px; left:30%; }
+    @include media(1300px) { top:250px; left:29%; }
     @include media(1100px) { left:27%; }
-    @include media(1020px) { left:26%; }
-    @include media(950px)  { left:25%; }
-    @include media(900px)  { left:24%; }
-    @include media(840px)  { left:23%; }
-    @include media(800px)  { left:22%; top:30%; }
-    @include media(750px)  { left:21%; top:27%; }
+    @include media(970px)  { top:230px; left:25%; }
+    @include media(850px)  { top:210px; left:23%; }
+    @include media(800px)  { top:180px; left:22%; }
+    @include media(750px)  { left:21%; }
     @include media(730px)  { left:20%; }
     @include media(680px)  { left:19%; }
     @include media(660px)  { left:18%; }
     @include media(630px)  { left:17%; }
-    @include media(600px)  { left:13%; }
+    @include media(600px)  { top:155px; left:13%; }
     @include media(458px)  { top:12%; background-color:rgba(255, 255, 255, 0.82);}
     @include media(380px)  { left:13%; }
   }
