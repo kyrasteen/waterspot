@@ -16,6 +16,7 @@
 
   input[type="submit"]{
     border:2px solid $main-blue;
+    pointer-events:none;
     &:hover{
       background-color:$main-blue;
       color:$light-blue;
@@ -25,6 +26,11 @@
   label{
     width:100px;
   }
+}
+
+.hints{
+  margin:0 auto;
+  text-align:center;
 }
 
 #user_avatar{
