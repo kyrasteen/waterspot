@@ -4,7 +4,7 @@
 
 This was a three week project for the Turing School. I was the sole contributor,
 and implemented every part of this project. During this project I was taught how to
-consume an API and use Ajax and JSON to transfer data in my application and to make my application an API.
+consume an API and use Ajax and JSON to transfer data in my application. The API endpoints in this application are conveniently bundled up in my [waterspoter gem](https://github.com/kyrasteen/waterspoter_gem).  You can also find a related blog post of mine [here](http://kyrasteen.github.io/Mapbox-with-Rails/)
 
 https://waterspot.herokuapp.com
 
