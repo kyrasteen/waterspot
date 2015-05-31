@@ -3,7 +3,7 @@ class Api::V1::PolygonsController < ApplicationController
   before_action :authorize
 
   def index
-    geo_polygons = GeoPoly.create(Polygon.all)
+    geo_polygons ||= GeoPoly.create(Polygon.all)
     spot = GeoSpots.create([current_user.spots.last])
     respond_with data: {polygons: geo_polygons, spot: spot}
   end
