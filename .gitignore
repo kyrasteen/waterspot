@@ -12,6 +12,8 @@
 !/log/.keep
 /tmp
 coverage
+dump.rdb
+.DS_Store
 
 # Ignore application configuration
 /config/application.yml

@@ -3,7 +3,7 @@ class Api::V1::SpotsController < ApplicationController
   before_action :authorize
 
   def index
-    geojson = GeoSpots.create(Spot.all)
+    geojson ||= GeoSpots.create(Spot.all)
     respond_with geojson
   end
 
